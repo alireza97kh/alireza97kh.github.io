@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alireza — Unity Multiplayer Developer</title>
+<title>AliReza Khishvand — Unity Multiplayer Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -20,7 +20,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,18 +31,11 @@
     overflow-x: hidden;
   }
 
-  /* ── SCANLINE OVERLAY ── */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.07) 2px,
-      rgba(0,0,0,0.07) 4px
-    );
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
     pointer-events: none;
     z-index: 9999;
   }
@@ -60,7 +52,6 @@
     background: linear-gradient(to bottom, rgba(5,6,8,0.95), transparent);
     backdrop-filter: blur(4px);
   }
-
   .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 22px;
@@ -68,13 +59,7 @@
     color: var(--gold);
     text-decoration: none;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-family: 'Share Tech Mono', monospace;
     font-size: 12px;
@@ -84,7 +69,6 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--gold); }
 
   /* ── HERO ── */
@@ -96,678 +80,303 @@
     overflow: hidden;
     padding: 120px 48px 80px;
   }
-
-  /* animated grid bg */
   .hero-grid {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
       linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: gridMove 20s linear infinite;
   }
-
   @keyframes gridMove {
     0% { background-position: 0 0; }
     100% { background-position: 60px 60px; }
   }
-
-  /* radial glow */
   .hero-glow {
-    position: absolute;
-    top: -200px; right: -200px;
+    position: absolute; top: -200px; right: -200px;
     width: 800px; height: 800px;
     background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-
   .hero-glow-2 {
-    position: absolute;
-    bottom: -300px; left: -100px;
+    position: absolute; bottom: -300px; left: -100px;
     width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(215,38,56,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-  }
-
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
   .hero-tag {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
+    font-size: 12px; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
     margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     animation: fadeUp 0.8s ease both;
   }
-
-  .hero-tag::before {
-    content: '';
-    display: inline-block;
-    width: 32px; height: 1px;
-    background: var(--gold);
-  }
-
+  .hero-tag::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
   .hero-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(72px, 10vw, 130px);
-    line-height: 0.9;
-    color: var(--white);
-    letter-spacing: 2px;
+    line-height: 0.9; color: var(--white); letter-spacing: 2px;
     animation: fadeUp 0.8s 0.15s ease both;
   }
-
-  .hero-name span {
-    color: var(--gold);
-    display: block;
-  }
-
+  .hero-name span { color: var(--gold); display: block; }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(24px, 3vw, 38px);
-    letter-spacing: 6px;
-    color: var(--muted);
+    letter-spacing: 6px; color: var(--muted);
     margin-top: 8px;
     animation: fadeUp 0.8s 0.3s ease both;
   }
-
   .hero-desc {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--text);
-    max-width: 520px;
-    margin-top: 28px;
-    line-height: 1.8;
+    font-size: 17px; font-weight: 300; color: var(--text);
+    max-width: 560px; margin-top: 28px; line-height: 1.8;
     animation: fadeUp 0.8s 0.45s ease both;
   }
-
   .hero-cta {
-    display: flex;
-    gap: 16px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;
     animation: fadeUp 0.8s 0.6s ease both;
   }
-
   .btn-primary {
-    display: inline-block;
-    padding: 14px 36px;
-    background: var(--gold);
-    color: var(--dark);
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    display: inline-block; padding: 14px 36px;
+    background: var(--gold); color: var(--dark);
+    font-family: 'Rajdhani', sans-serif; font-size: 14px;
+    font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
     text-decoration: none;
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     transition: background 0.2s, transform 0.2s;
   }
-
   .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
-
   .btn-outline {
-    display: inline-block;
-    padding: 13px 36px;
-    border: 1px solid var(--muted);
-    color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    display: inline-block; padding: 13px 36px;
+    border: 1px solid var(--muted); color: var(--text);
+    font-family: 'Rajdhani', sans-serif; font-size: 14px;
+    font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
     text-decoration: none;
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     transition: border-color 0.2s, color 0.2s;
   }
-
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* scroll hint */
   .scroll-hint {
-    position: absolute;
-    bottom: 40px; left: 48px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--muted);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    position: absolute; bottom: 40px; left: 48px;
+    font-family: 'Share Tech Mono', monospace; font-size: 11px;
+    letter-spacing: 3px; color: var(--muted); text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
     animation: fadeUp 1s 1s ease both;
   }
-
   .scroll-hint::after {
-    content: '';
-    display: block;
-    width: 1px; height: 48px;
+    content: ''; display: block; width: 1px; height: 48px;
     background: linear-gradient(to bottom, var(--muted), transparent);
     animation: scrollLine 2s ease-in-out infinite;
   }
-
   @keyframes scrollLine {
     0%, 100% { transform: scaleY(1); opacity: 1; }
     50% { transform: scaleY(0.5); opacity: 0.4; }
   }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── AWARDS ── */
+  /* ── AWARDS BAR ── */
   .awards-bar {
     background: linear-gradient(90deg, var(--dark-2), var(--dark-3), var(--dark-2));
     border-top: 1px solid rgba(201,168,76,0.3);
     border-bottom: 1px solid rgba(201,168,76,0.3);
     padding: 0 48px;
-    overflow: hidden;
   }
-
-  .awards-inner {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-  }
-
+  .awards-inner { display: flex; align-items: stretch; }
   .award-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    display: flex; align-items: center; gap: 20px;
     padding: 28px 48px;
     border-right: 1px solid rgba(201,168,76,0.15);
-    flex: 1;
-    position: relative;
-    transition: background 0.3s;
+    flex: 1; transition: background 0.3s;
   }
-
   .award-item:last-child { border-right: none; }
   .award-item:hover { background: rgba(201,168,76,0.04); }
-
   .award-icon {
-    font-size: 36px;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 12px rgba(201,168,76,0.5));
+    font-size: 36px; flex-shrink: 0;
     animation: pulse 3s ease-in-out infinite;
   }
-
   @keyframes pulse {
     0%, 100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.4)); }
     50% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.8)); }
   }
+  .award-text .label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+  .award-text .title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--white); line-height: 1.1; }
+  .award-text .sub { font-size: 13px; color: var(--muted); font-weight: 300; }
 
-  .award-text .label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-
-  .award-text .title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    color: var(--white);
-    line-height: 1.1;
-  }
-
-  .award-text .sub {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  /* ── SECTION COMMON ── */
-  section {
-    padding: 100px 48px;
-  }
-
+  /* ── SECTIONS ── */
+  section { padding: 100px 48px; }
   .section-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    font-family: 'Share Tech Mono', monospace; font-size: 11px;
+    letter-spacing: 5px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 16px; display: flex; align-items: center; gap: 16px;
   }
-
-  .section-label::before {
-    content: '';
-    width: 24px; height: 1px;
-    background: var(--gold);
-  }
-
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(42px, 6vw, 72px);
-    letter-spacing: 3px;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 60px;
+    letter-spacing: 3px; color: var(--white);
+    line-height: 1; margin-bottom: 60px;
   }
 
   /* ── ABOUT ── */
-  .about {
-    background: var(--dark-2);
-    position: relative;
-    overflow: hidden;
-  }
-
+  .about { background: var(--dark-2); position: relative; overflow: hidden; }
   .about::before {
-    content: 'ABOUT';
-    position: absolute;
-    top: 40px; right: -20px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 180px;
-    color: rgba(201,168,76,0.03);
-    letter-spacing: 20px;
-    pointer-events: none;
-    line-height: 1;
+    content: 'ABOUT'; position: absolute; top: 40px; right: -20px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 180px;
+    color: rgba(201,168,76,0.03); letter-spacing: 20px;
+    pointer-events: none; line-height: 1;
   }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
-    align-items: start;
-    max-width: 1100px;
-  }
-
-  .about-text p {
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.9;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-
-  .about-text p strong {
-    color: var(--white);
-    font-weight: 600;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .stat-box {
-    background: var(--dark-3);
-    padding: 28px 24px;
-    border-left: 3px solid var(--gold);
-    transition: background 0.2s;
-  }
-
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; max-width: 1100px; }
+  .about-text p { font-size: 17px; font-weight: 300; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
+  .about-text p strong { color: var(--white); font-weight: 600; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .stat-box { background: var(--dark-3); padding: 28px 24px; border-left: 3px solid var(--gold); transition: background 0.2s; }
   .stat-box:hover { background: rgba(201,168,76,0.06); }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); line-height: 1; letter-spacing: 2px; }
+  .stat-label { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
 
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--gold);
-    line-height: 1;
-    letter-spacing: 2px;
-  }
-
-  .stat-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* ── TECH STACK ── */
+  /* ── TECH ── */
   .tech { background: var(--dark); }
-
-  .tech-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2px;
-    max-width: 1200px;
-  }
-
+  .tech-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; max-width: 1200px; }
   .tech-cat {
-    background: var(--dark-3);
-    padding: 32px 28px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
+    background: var(--dark-3); padding: 32px 28px;
+    position: relative; overflow: hidden; transition: transform 0.2s;
   }
-
   .tech-cat::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
   }
-
   .tech-cat:hover { transform: translateY(-4px); }
   .tech-cat:hover::before { transform: scaleX(1); }
-
-  .tech-cat-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .tech-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
+  .tech-cat-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+  .tech-items { display: flex; flex-wrap: wrap; gap: 8px; }
   .tech-tag {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 5px 12px;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--text);
-    transition: all 0.2s;
+    font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 1px; padding: 5px 12px;
+    background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
+    color: var(--text); transition: all 0.2s;
   }
-
-  .tech-tag.highlight {
-    border-color: var(--gold);
-    color: var(--gold);
-    background: rgba(201,168,76,0.12);
-  }
-
-  .tech-tag:hover {
-    background: rgba(201,168,76,0.2);
-    color: var(--gold-bright);
-    border-color: var(--gold-bright);
-  }
+  .tech-tag.highlight { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.12); }
+  .tech-tag:hover { background: rgba(201,168,76,0.2); color: var(--gold-bright); border-color: var(--gold-bright); }
 
   /* ── PROJECTS ── */
   .projects { background: var(--dark-2); }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2px;
-    max-width: 1200px;
-  }
-
-  .project-card {
-    background: var(--dark-3);
-    overflow: hidden;
-    position: relative;
-    cursor: default;
-    transition: transform 0.3s;
-  }
-
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2px; max-width: 1200px; }
+  .project-card { background: var(--dark-3); overflow: hidden; position: relative; transition: transform 0.3s; }
   .project-card:hover { transform: translateY(-6px); }
-
   .project-card:hover .card-overlay { opacity: 1; }
+  .card-img-wrap { height: 200px; overflow: hidden; position: relative; background: var(--muted); }
+  .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: brightness(0.7) saturate(0.8); }
   .project-card:hover .card-img { transform: scale(1.05); }
-
-  .card-img-wrap {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    background: var(--muted);
-  }
-
-  .card-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-    filter: brightness(0.7) saturate(0.8);
-  }
-
   .card-img-placeholder {
     width: 100%; height: 100%;
     background: linear-gradient(135deg, var(--dark-3), var(--muted));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 4px;
-    color: rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 48px;
+    letter-spacing: 4px; color: rgba(201,168,76,0.2);
   }
-
   .card-overlay {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(5,6,8,0.9), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 20px;
   }
+  .card-body { padding: 24px; }
+  .card-platform { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--white); margin-bottom: 10px; }
+  .card-desc { font-size: 14px; font-weight: 300; color: var(--text); line-height: 1.7; margin-bottom: 16px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .card-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; padding: 3px 8px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18); color: var(--muted); text-transform: uppercase; }
+  .card-link { display: inline-block; margin-top: 14px; font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .card-link:hover { border-color: var(--gold); }
 
-  .card-body {
-    padding: 24px;
+  /* ── YOUTUBE ── */
+  .youtube { background: var(--dark); }
+  .yt-intro { max-width: 600px; margin-bottom: 48px; }
+  .yt-intro p { font-size: 16px; font-weight: 300; color: var(--text); line-height: 1.8; }
+  .yt-intro p strong { color: var(--white); }
+  .yt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; max-width: 1200px; }
+  .yt-card {
+    background: var(--dark-3); overflow: hidden;
+    position: relative; transition: transform 0.3s;
+    text-decoration: none; display: block;
   }
-
-  .card-platform {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 8px;
+  .yt-card:hover { transform: translateY(-4px); }
+  .yt-thumb {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--dark-2);
+    position: relative; overflow: hidden;
   }
-
-  .card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 10px;
+  .yt-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: filter 0.3s; }
+  .yt-card:hover .yt-thumb img { filter: brightness(1); }
+  .yt-thumb-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0D0F14, #1a1f2e);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
   }
-
-  .card-desc {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.7;
-    margin-bottom: 16px;
+  .yt-play-btn {
+    width: 52px; height: 52px;
+    background: rgba(201,168,76,0.15);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
   }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+  .yt-card:hover .yt-play-btn { background: rgba(201,168,76,0.3); }
+  .yt-play-btn svg { margin-left: 4px; }
+  .yt-label-sm { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); }
+  .yt-body { padding: 20px; }
+  .yt-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
+  .yt-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+  .yt-channel-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 48px;
+    padding: 16px 32px;
+    background: rgba(255,0,0,0.08); border: 1px solid rgba(255,0,0,0.3);
+    color: #ff4444; text-decoration: none;
+    font-family: 'Rajdhani', sans-serif; font-size: 14px;
+    font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background 0.2s, border-color 0.2s;
   }
-
-  .card-tag {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    padding: 3px 8px;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.18);
-    color: var(--muted);
-    text-transform: uppercase;
-  }
+  .yt-channel-link:hover { background: rgba(255,0,0,0.15); border-color: rgba(255,0,0,0.6); }
 
   /* ── EXPERIENCE ── */
-  .experience { background: var(--dark); }
-
-  .timeline {
-    max-width: 800px;
-    position: relative;
-    padding-left: 48px;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-  }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: 56px;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -52px; top: 6px;
-    width: 9px; height: 9px;
-    background: var(--gold);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  }
-
-  .timeline-date {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .timeline-company {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .timeline-role {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .timeline-desc {
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--text);
-    line-height: 1.8;
-  }
+  .experience { background: var(--dark-2); }
+  .timeline { max-width: 800px; position: relative; padding-left: 48px; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
+  .timeline-item { position: relative; margin-bottom: 56px; }
+  .timeline-item::before { content: ''; position: absolute; left: -52px; top: 6px; width: 9px; height: 9px; background: var(--gold); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+  .timeline-date { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .timeline-company { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); margin-bottom: 4px; }
+  .timeline-role { font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 16px; }
+  .timeline-desc { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.8; }
 
   /* ── CONTACT ── */
-  .contact {
-    background: var(--dark-2);
-    text-align: center;
-    padding: 120px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 8vw, 100px);
-    letter-spacing: 6px;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 24px;
-    position: relative;
-  }
-
-  .contact-sub {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--muted);
-    max-width: 480px;
-    margin: 0 auto 48px;
-    line-height: 1.8;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: relative;
-  }
+  .contact { background: var(--dark); text-align: center; padding: 120px 48px; position: relative; overflow: hidden; }
+  .contact::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+  .contact-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 8vw, 100px); letter-spacing: 6px; color: var(--white); line-height: 1; margin-bottom: 24px; position: relative; }
+  .contact-sub { font-size: 16px; font-weight: 300; color: var(--muted); max-width: 480px; margin: 0 auto 48px; line-height: 1.8; }
+  .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; position: relative; }
 
   /* ── FOOTER ── */
-  footer {
-    padding: 24px 48px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--muted);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-  }
-
-  .footer-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  footer { padding: 24px 48px; border-top: 1px solid rgba(201,168,76,0.1); display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
 
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── CORNER DECORATION ── */
-  .corner-tl, .corner-br {
-    position: absolute;
-    width: 24px; height: 24px;
-    pointer-events: none;
-  }
+  /* ── CORNERS ── */
+  .corner-tl, .corner-br { position: absolute; width: 24px; height: 24px; pointer-events: none; }
   .corner-tl { top: 16px; left: 16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
   .corner-br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
 
@@ -775,11 +384,10 @@
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    section { padding: 72px 24px; }
+    .hero, section { padding: 80px 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .awards-inner { flex-direction: column; }
-    .award-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .award-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); padding: 24px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .scroll-hint { left: 24px; }
   }
@@ -789,11 +397,12 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">Alireza Khishvand</a>
+  <a href="#" class="nav-logo">AK.DEV</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#tech">Stack</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#youtube">YouTube</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -807,12 +416,11 @@
   <div class="hero-content">
     <div class="hero-tag">Unity · Multiplayer Systems · Game Developer</div>
     <h1 class="hero-name">
-      Alireza<span>Khishvand</span>
+      AliReza<span>Khishvand</span>
     </h1>
     <div class="hero-title">Gameplay &amp; Systems Developer</div>
     <p class="hero-desc">
-      Building the invisible architecture that makes multiplayer worlds feel alive —
-      from real-time synchronization to authoritative server logic, across Photon, Mirror, Netcode, and raw socket layers.
+      I build scalable gameplay systems, real-time multiplayer mechanics, and production-ready Unity projects across multiple genres — from core combat loops to server-authoritative architectures.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn-primary">View Projects</a>
@@ -834,19 +442,19 @@
       </div>
     </div>
     <div class="award-item">
-      <div class="award-icon">🎓</div>
-      <div class="award-text">
-        <div class="label">BSc</div>
-        <div class="title">Computer Engineering</div>
-        <div class="sub">Bu-Ali Sina University</div>
-      </div>
-    </div>
-    <div class="award-item">
       <div class="award-icon">🌐</div>
       <div class="award-text">
         <div class="label">Specialization</div>
         <div class="title">Multiplayer Architecture</div>
-        <div class="sub">Photon · Mirror · Netcode · Sockets</div>
+        <div class="sub">Photon · Mirror · Netcode · TCP/UDP</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-icon">📍</div>
+      <div class="award-text">
+        <div class="label">Availability</div>
+        <div class="title">Open to Remote & Relocation</div>
+        <div class="sub">Freelance · Full-time · Contract</div>
       </div>
     </div>
   </div>
@@ -859,14 +467,16 @@
       <div class="section-label">About</div>
       <h2 class="section-title">The Dev<br>Behind<br>The Server</h2>
       <p>
-        I'm a <strong>Unity Gameplay & Systems Developer</strong> with deep specialization in multiplayer architecture.
-        My background spans indie studios and award-winning productions, always focused on building systems that scale — from game feel to server authority.
+        I'm a <strong>Unity Gameplay & Systems Developer</strong> specialized in real-time multiplayer. My strength is turning game ideas into working, scalable systems — from core gameplay loops to production-ready multiplayer-ready architectures.
       </p>
       <p>
-        Having shipped titles at <strong>ANU Game Studio</strong>, <strong>Alif Game Studio</strong>, and <strong>Badbadak Haft Aseman</strong>, I know what it takes to move from prototype to production in team environments where every frame counts.
+        I've shipped projects across multiple genres: <strong>multiplayer shooters, MOBA prototypes, simulation builders, and casual games</strong> — working solo and in team environments across studios.
       </p>
       <p>
-        My edge is the intersection of <strong>low-level networking</strong> (raw TCP/UDP sockets) and <strong>high-level Unity workflows</strong> — I can debug a desync and design a game loop in the same sprint.
+        My work spans the full stack: <strong>full-cycle development from prototype to production</strong>, with a strong focus on gameplay systems, real-time performance, and clean architecture.
+      </p>
+      <p>
+        I also run <strong>ZeroToGame</strong> on YouTube — a channel where I document and showcase my systems, experiments, and development process.
       </p>
     </div>
     <div class="stats-grid">
@@ -875,16 +485,16 @@
         <div class="stat-label">Golden Deer Awards</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Studios Shipped</div>
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Shipped Projects</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">4+</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">Multiplayer Stacks</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Packets Per Second</div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Game Genres</div>
       </div>
     </div>
   </div>
@@ -904,7 +514,6 @@
         <span class="tech-tag highlight">Netcode for GameObjects</span>
         <span class="tech-tag highlight">TCP Sockets</span>
         <span class="tech-tag highlight">UDP Sockets</span>
-        <span class="tech-tag">Fish-Net</span>
         <span class="tech-tag">WebSocket</span>
       </div>
     </div>
@@ -912,35 +521,35 @@
       <div class="tech-cat-label">Unity Core</div>
       <div class="tech-items">
         <span class="tech-tag highlight">Unity</span>
-        <span class="tech-tag">C#</span>
-        <span class="tech-tag">DOTS / ECS</span>
-        <span class="tech-tag">URP / HDRP</span>
+        <span class="tech-tag highlight">C#</span>
+        <span class="tech-tag">URP</span>
         <span class="tech-tag">Addressables</span>
         <span class="tech-tag">Editor Scripting</span>
         <span class="tech-tag">Scriptable Objects</span>
+        <span class="tech-tag">DOTween</span>
       </div>
     </div>
     <div class="tech-cat">
       <div class="tech-cat-label">Systems & Architecture</div>
       <div class="tech-items">
-        <span class="tech-tag">State Machines</span>
-        <span class="tech-tag">Observer Pattern</span>
-        <span class="tech-tag">ECS</span>
-        <span class="tech-tag">Dependency Injection</span>
+        <span class="tech-tag highlight">Server-Authoritative</span>
+        <span class="tech-tag highlight">State Machine</span>
+        <span class="tech-tag highlight">MVC Pattern</span>
+        <span class="tech-tag">Singleton Pattern</span>
         <span class="tech-tag">Object Pooling</span>
-        <span class="tech-tag">Client Prediction</span>
-        <span class="tech-tag">Lag Compensation</span>
+        <span class="tech-tag">Input-Based Networking</span>
+        <span class="tech-tag">Sync Logic</span>
       </div>
     </div>
     <div class="tech-cat">
-      <div class="tech-cat-label">Tooling & Pipeline</div>
+      <div class="tech-cat-label">Integrations & Services</div>
       <div class="tech-items">
+        <span class="tech-tag">SDK Integration</span>
+        <span class="tech-tag">Auth Systems</span>
+        <span class="tech-tag">Zepeto</span>
+        <span class="tech-tag">Gmail Login</span>
         <span class="tech-tag">Git / GitHub</span>
-        <span class="tech-tag">CI/CD</span>
-        <span class="tech-tag">Profiler</span>
-        <span class="tech-tag">Wireshark</span>
-        <span class="tech-tag">Jira / Agile</span>
-        <span class="tech-tag">PlayFab</span>
+        <span class="tech-tag">Agile</span>
       </div>
     </div>
   </div>
@@ -952,103 +561,145 @@
   <h2 class="section-title reveal">Shipped<br>Work</h2>
   <div class="projects-grid reveal">
 
+    <!-- Pookeh -->
     <div class="project-card">
       <div class="card-img-wrap">
-        <div class="card-img-placeholder">MULTI</div>
+        <div class="card-img-placeholder">POOKEH</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">PC / Online · Photon Fusion</div>
-        <div class="card-title">Multiplayer Shooter Systems</div>
-        <p class="card-desc">Authoritative server architecture with client-side prediction and lag compensation. Built from scratch using Photon Fusion's shared mode. Reduced perceived latency by 40% through interpolation tuning.</p>
+        <div class="card-platform">PC · Realtime PvP · Multiplayer Shooter -🦌 2x Golden Deer Award</div>
+        <div class="card-title">Pookeh</div>
+        <p class="card-desc">Fast-paced online multiplayer shooter with real-time PvP combat, team-based gameplay, and multiple competitive modes. Built core combat systems, player interaction (PvP mechanics), character & weapon systems, and all gameplay modes.</p>
         <div class="card-tags">
-          <span class="card-tag">Photon Fusion</span>
-          <span class="card-tag">Client Prediction</span>
-          <span class="card-tag">Lag Compensation</span>
+          <span class="card-tag">🦌 2x Golden Deer</span>
+          <span class="card-tag">Multiplayer</span>
+          <span class="card-tag">PvP</span>
+          <span class="card-tag">Unity</span>
+          <span class="card-tag">C#</span>
+        </div>
+      </div>
+    </div>
+    <!-- Train Town -->
+    <div class="project-card">
+      <div class="card-img-wrap">
+        <div class="card-img-placeholder">TRAIN</div>
+      </div>
+      <div class="card-body">
+        <div class="card-platform">Mobile · Solo Dev · Simulation / Builder</div>
+        <div class="card-title">Everyone's Train Town</div>
+        <p class="card-desc">Full-featured simulation game where players build and customize their own railway town. Built entirely as solo developer: building & customization systems, UI, core gameplay loops, and SDK integrations including Gmail login and Zepeto character sync.</p>
+        <div class="card-tags">
+          <span class="card-tag">Solo Project</span>
+          <span class="card-tag">Simulation</span>
+          <span class="card-tag">SDK Integration</span>
+          <span class="card-tag">Zepeto</span>
         </div>
       </div>
     </div>
 
+    <!-- Dobiel -->
     <div class="project-card">
       <div class="card-img-wrap">
-        <div class="card-img-placeholder">SOCKET</div>
+        <div class="card-img-placeholder">DOBIEL</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">Server-side · Raw Sockets</div>
-        <div class="card-title">Custom Game Server (TCP/UDP)</div>
-        <p class="card-desc">Low-level game server built with raw C# sockets — TCP for reliable state and UDP for high-frequency position updates. Supports 64+ concurrent connections with custom message framing.</p>
+        <div class="card-platform">PC · Server-Authoritative · MOBA</div>
+        <div class="card-title">Dobiel — MOBA Prototype</div>
+        <p class="card-desc">Multiplayer MOBA prototype using full server-authoritative architecture. All gameplay logic handled server-side. Built the input-based networking model, creep/tower/combat sync logic, and core MOBA gameplay systems.</p>
         <div class="card-tags">
-          <span class="card-tag">TCP/UDP</span>
-          <span class="card-tag">C# Sockets</span>
-          <span class="card-tag">Concurrency</span>
+          <span class="card-tag">Server-Auth</span>
+          <span class="card-tag">MOBA</span>
+          <span class="card-tag">Custom Networking</span>
         </div>
       </div>
     </div>
 
+    <!-- DinoWay -->
     <div class="project-card">
       <div class="card-img-wrap">
-        <div class="card-img-placeholder">MIRROR</div>
+        <div class="card-img-placeholder">DINO</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">PC / LAN · Mirror Networking</div>
-        <div class="card-title">Co-op RPG Networking Layer</div>
-        <p class="card-desc">Full networking rewrite of a 4-player co-op RPG using Mirror. Implemented SyncVar, Commands, and ClientRPC patterns. Added interest management to cut bandwidth by 60% in large scenes.</p>
+        <div class="card-platform">Mobile · Casual · Solo Dev</div>
+        <div class="card-title">DinoWay</div>
+        <p class="card-desc">Unique casual game where players follow dynamically generated footsteps to progress. Designed the core mechanic from scratch — an indirect player guidance system using a procedural path and footstep system. Built all player control and feedback systems.</p>
         <div class="card-tags">
-          <span class="card-tag">Mirror</span>
-          <span class="card-tag">Interest Management</span>
-          <span class="card-tag">RPG Systems</span>
+          <span class="card-tag">Solo Project</span>
+          <span class="card-tag">Casual</span>
+          <span class="card-tag">Procedural</span>
+          <span class="card-tag">Unity</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="project-card">
-      <div class="card-img-wrap">
-        <div class="card-img-placeholder">NGO</div>
-      </div>
-      <div class="card-body">
-        <div class="card-platform">Mobile / Console · NGO</div>
-        <div class="card-title">Netcode for GameObjects Prototype</div>
-        <p class="card-desc">Gameplay prototype using Unity's official Netcode for GameObjects stack. Implemented NetworkTransform, NetworkVariable and custom RPCs. Integrated with Unity Gaming Services relay and lobby.</p>
-        <div class="card-tags">
-          <span class="card-tag">Netcode for GO</span>
-          <span class="card-tag">UGS Relay</span>
-          <span class="card-tag">Lobby API</span>
-        </div>
-      </div>
-    </div>
+<!-- ── YOUTUBE ── -->
+<section class="youtube" id="youtube">
+  <div class="section-label reveal">Content</div>
+  <h2 class="section-title reveal">Zero To<br>Game</h2>
+  <div class="yt-intro reveal">
+    <p>
+      I document my systems, gameplay experiments, and development process on <strong>YouTube</strong>.
+      The channel covers real multiplayer implementations, architecture deep-dives, and project showcases — the technical side of building games, not just the glamour.
+    </p>
+  </div>
 
-    <div class="project-card">
-      <div class="card-img-wrap">
-        <div class="card-img-placeholder">SYS</div>
-      </div>
-      <div class="card-body">
-        <div class="card-platform">Mobile · ANU Game Studio</div>
-        <div class="card-title">Core Gameplay Systems — [Studio Project]</div>
-        <p class="card-desc">Designed and implemented gameplay loop systems, save/load architecture, and in-game economy balance tools. Contributed to a Golden Deer Award win at Fajr Game Festival.</p>
-        <div class="card-tags">
-          <span class="card-tag">🦌 Golden Deer</span>
-          <span class="card-tag">Game Systems</span>
-          <span class="card-tag">Economy Design</span>
-        </div>
-      </div>
-    </div>
+  <div class="yt-grid reveal">
 
-    <div class="project-card">
-      <div class="card-img-wrap">
-        <div class="card-img-placeholder">AI</div>
-      </div>
-      <div class="card-body">
-        <div class="card-platform">PC · Alif Game Studio</div>
-        <div class="card-title">AI & Matchmaking Systems — [Studio Project]</div>
-        <p class="card-desc">Developed enemy AI state machines, pathfinding integration, and skill systems. Also built matchmaking logic and player ranking system for competitive online play.</p>
-        <div class="card-tags">
-          <span class="card-tag">🦌 Golden Deer</span>
-          <span class="card-tag">AI / NavMesh</span>
-          <span class="card-tag">Matchmaking</span>
+    <!-- VIDEO CARD 1 — replace href and thumbnail src with your real video URL & thumbnail -->
+    <a class="yt-card" href="https://www.youtube.com/watch?v=F9coDnuH7TU&t=6s" target="_blank">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
+        <div class="yt-thumb-placeholder">
+          <div class="yt-play-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <div class="yt-label-sm">PASTE YOUR VIDEO THUMBNAIL HERE</div>
         </div>
       </div>
-    </div>
+      <div class="yt-body">
+        <div class="yt-title">Everyone’s Train Town gameplay showcase – build your own railway city!</div>
+        <!--div class="yt-desc">Replace this card with your first video — paste the YouTube URL into the href above and add a thumbnail image.</div> -->
+      </div>
+    </a>
+
+    <!-- VIDEO CARD 2 -->
+    <a class="yt-card" href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
+        <div class="yt-thumb-placeholder">
+          <div class="yt-play-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="yt-body">
+        <div class="yt-title">Dobiel | MOBA Gameplay Demo (Server-Authoritative Multiplayer Prototype)</div>
+      </div>
+    </a>
+
+    <!-- VIDEO CARD 3 -->
+    <a class="yt-card" href="https://www.youtube.com/shorts/VS3cV1VbruY" target="_blank">
+      <div class="yt-thumb">
+        <img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
+        <div class="yt-thumb-placeholder">
+          <div class="yt-play-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="yt-body">
+        <div class="yt-title">Dino Memory Adventure 🦖 | Puzzle Game Gameplay (Save the Lost Love!)</div>
+      </div>
+    </a>
 
   </div>
+
+  <a href="https://www.youtube.com/@ZeroToGameByAliReza" target="_blank" class="yt-channel-link reveal">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+    Watch on YouTube — ZeroToGame by AliReza
+  </a>
 </section>
 
 <!-- ── EXPERIENCE ── -->
@@ -1058,24 +709,24 @@
   <div class="timeline reveal">
 
     <div class="timeline-item">
-      <div class="timeline-date">Recent</div>
-      <div class="timeline-company">Badbadak Haft Aseman</div>
-      <div class="timeline-role">Unity Gameplay & Systems Developer</div>
-      <p class="timeline-desc">Shipping multiplayer features and core gameplay systems. Responsible for network architecture decisions, real-time synchronization, and gameplay programming across the full stack.</p>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">Previous</div>
+      <div class="timeline-date">Current</div>
       <div class="timeline-company">Alif Game Studio</div>
-      <div class="timeline-role">Unity Developer · 🦌 Golden Deer Award</div>
-      <p class="timeline-desc">Built core systems for a shipped title that won the Golden Deer Award at Fajr International Game Festival. Focused on online gameplay systems, AI, and player-facing features.</p>
+      <div class="timeline-role">Senior Unity Developer</div>
+      <p class="timeline-desc">Built core gameplay and multiplayer systems for a shipped title that earned the Golden Deer Award at Fajr International Game Festival. Focused on real-time online gameplay, architecture, and player-facing features.</p>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-date">Foundational</div>
       <div class="timeline-company">ANU Game Studio</div>
-      <div class="timeline-role">Unity Developer · 🦌 Golden Deer Award</div>
-      <p class="timeline-desc">Contributed to an award-winning mobile title. Led gameplay programming, designed economy systems, and delivered performance-optimized builds across Android and iOS targets.</p>
+      <div class="timeline-role">Unity Developer · 🦌 2x Golden Deer Award</div>
+      <p class="timeline-desc">Contributed to an award-winning title. Led gameplay programming and system design, delivered performance-optimized builds, and built foundational systems that helped the project win at Fajr Game Festival.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Previous</div>
+      <div class="timeline-company">Badbadak Haft Aseman</div>
+      <div class="timeline-role">Unity Gameplay & Systems Developer</div>
+      <p class="timeline-desc">Shipping multiplayer features and core gameplay systems. Responsible for network architecture decisions, real-time synchronization, and gameplay programming across the full development stack.</p>
     </div>
 
   </div>
@@ -1088,44 +739,36 @@
   <div class="section-label reveal" style="justify-content:center;">Available for Work</div>
   <h2 class="contact-title reveal">Let's<br>Build<br>Together</h2>
   <p class="contact-sub reveal">
-    Looking for a multiplayer systems specialist? I'm open to full-time roles, contract work, and technical collaborations.
+    Open to remote Unity Developer roles, freelance projects, and relocation opportunities. Let's ship something great.
   </p>
   <div class="contact-links reveal">
     <a href="mailto:alireza97khish@gmail.com" class="btn-primary">Email Me</a>
     <a href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" class="btn-outline">LinkedIn</a>
     <a href="https://github.com/alireza97kh" target="_blank" class="btn-outline">GitHub</a>
+    <a href="https://www.youtube.com/@ZeroToGame" target="_blank" class="btn-outline">YouTube</a>
   </div>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-copy">© 2026 ALIREZA KHISHVAND · UNITY DEVELOPER</div>
+  <div class="footer-copy">© 2026 ALIREZA KHISHVAND · UNITY MULTIPLAYER DEVELOPER</div>
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#tech">Stack</a>
     <a href="#projects">Projects</a>
+    <a href="#youtube">YouTube</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
-
-  // Stagger child reveals
-  document.querySelectorAll('.tech-categories .reveal, .projects-grid .reveal').forEach((parent) => {
-    parent.querySelectorAll('.tech-cat, .project-card').forEach((child, i) => {
-      child.style.transitionDelay = `${i * 0.08}s`;
-    });
-  });
 </script>
 </body>
 </html>
