@@ -104,7 +104,16 @@
     background: radial-gradient(circle, rgba(215,38,56,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 60px;
+  }
+  .hero-content { max-width: 700px; }
   .hero-tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 12px; letter-spacing: 4px;
@@ -137,6 +146,61 @@
     display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;
     animation: fadeUp 0.8s 0.6s ease both;
   }
+
+  /* ── HERO PHOTO ── */
+  .hero-photo-wrap {
+    flex-shrink: 0;
+    position: relative;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-photo-frame {
+    width: 280px; height: 340px;
+    position: relative;
+    clip-path: polygon(16px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
+    background: var(--dark-3);
+    border: none;
+    overflow: hidden;
+  }
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, transparent 60%);
+    z-index: 2;
+  }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    background: linear-gradient(160deg, #0D0F14 0%, #1a1f2c 100%);
+  }
+  .hero-photo-placeholder svg { opacity: 0.25; }
+  .hero-photo-placeholder span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--gold); text-transform: uppercase;
+    opacity: 0.6; text-align: center; padding: 0 20px;
+  }
+  /* When you have a real photo, replace .hero-photo-placeholder with: */
+  /* <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> */
+  .hero-photo-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .hero-photo-corner.tl { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
+  .hero-photo-corner.tr { top: -6px; right: -6px; border-width: 2px 2px 0 0; }
+  .hero-photo-corner.bl { bottom: -6px; left: -6px; border-width: 0 0 2px 2px; }
+  .hero-photo-corner.br { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
+  .hero-photo-label {
+    position: absolute; bottom: -28px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--gold); text-transform: uppercase;
+  }
+
   .btn-primary {
     display: inline-block; padding: 14px 36px;
     background: var(--gold); color: var(--dark);
@@ -194,10 +258,7 @@
   }
   .award-item:last-child { border-right: none; }
   .award-item:hover { background: rgba(201,168,76,0.04); }
-  .award-icon {
-    font-size: 36px; flex-shrink: 0;
-    animation: pulse 3s ease-in-out infinite;
-  }
+  .award-icon { font-size: 36px; flex-shrink: 0; animation: pulse 3s ease-in-out infinite; }
   @keyframes pulse {
     0%, 100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.4)); }
     50% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.8)); }
@@ -233,9 +294,15 @@
   .about-text p { font-size: 17px; font-weight: 300; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
   .about-text p strong { color: var(--white); font-weight: 600; }
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .stat-box { background: var(--dark-3); padding: 28px 24px; border-left: 3px solid var(--gold); transition: background 0.2s; }
+  .stat-box {
+    background: var(--dark-3); padding: 28px 24px;
+    border-left: 3px solid var(--gold); transition: background 0.2s;
+  }
   .stat-box:hover { background: rgba(201,168,76,0.06); }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); line-height: 1; letter-spacing: 2px; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 48px;
+    color: var(--gold); line-height: 1; letter-spacing: 2px;
+  }
   .stat-label { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
 
   /* ── TECH ── */
@@ -256,19 +323,21 @@
   .tech-items { display: flex; flex-wrap: wrap; gap: 8px; }
   .tech-tag {
     font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 600;
-    letter-spacing: 1px; padding: 5px 12px;
+    letter-spacing: 1px; padding: 5px 10px;
     background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
     color: var(--text); transition: all 0.2s;
+    display: flex; align-items: center; gap: 6px;
   }
   .tech-tag.highlight { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.12); }
   .tech-tag:hover { background: rgba(201,168,76,0.2); color: var(--gold-bright); border-color: var(--gold-bright); }
+  .tech-tag img { width: 14px; height: 14px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.7; }
+  .tech-tag.highlight img { filter: none; opacity: 1; }
 
   /* ── PROJECTS ── */
   .projects { background: var(--dark-2); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2px; max-width: 1200px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2px; max-width: 1200px; }
   .project-card { background: var(--dark-3); overflow: hidden; position: relative; transition: transform 0.3s; }
   .project-card:hover { transform: translateY(-6px); }
-  .project-card:hover .card-overlay { opacity: 1; }
   .card-img-wrap { height: 200px; overflow: hidden; position: relative; background: var(--muted); }
   .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: brightness(0.7) saturate(0.8); }
   .project-card:hover .card-img { transform: scale(1.05); }
@@ -279,23 +348,80 @@
     font-family: 'Bebas Neue', sans-serif; font-size: 48px;
     letter-spacing: 4px; color: rgba(201,168,76,0.2);
   }
-  .card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(5,6,8,0.9), transparent);
-    opacity: 0; transition: opacity 0.3s;
-    display: flex; align-items: flex-end; padding: 20px;
+  .card-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; padding: 4px 10px;
+    background: rgba(201,168,76,0.9); color: #050608;
+    text-transform: uppercase; font-weight: 700;
   }
   .card-body { padding: 24px; }
   .card-platform { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
   .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--white); margin-bottom: 10px; }
   .card-desc { font-size: 14px; font-weight: 300; color: var(--text); line-height: 1.7; margin-bottom: 16px; }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
   .card-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; padding: 3px 8px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18); color: var(--muted); text-transform: uppercase; }
-  .card-link { display: inline-block; margin-top: 14px; font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
-  .card-link:hover { border-color: var(--gold); }
+
+  /* ── STORE BUTTONS ── */
+  .card-store-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 14px;
+    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid;
+    transition: all 0.2s;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .store-btn svg { flex-shrink: 0; }
+  .store-btn.google {
+    border-color: rgba(201,168,76,0.5); color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+  .store-btn.google:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); }
+  .store-btn.apple {
+    border-color: rgba(184,191,208,0.4); color: var(--text);
+    background: rgba(184,191,208,0.06);
+  }
+  .store-btn.apple:hover { background: rgba(184,191,208,0.15); border-color: var(--text); }
+  .store-btn.watch {
+    border-color: rgba(215,38,56,0.5); color: #ff5566;
+    background: rgba(215,38,56,0.08);
+  }
+  .store-btn.watch:hover { background: rgba(215,38,56,0.18); border-color: #ff5566; }
+  .store-btn.pc {
+    border-color: rgba(101,120,200,0.5); color: #8899ff;
+    background: rgba(101,120,200,0.08);
+  }
+  .store-btn.pc:hover { background: rgba(101,120,200,0.18); border-color: #8899ff; }
 
   /* ── YOUTUBE ── */
   .youtube { background: var(--dark); }
+  .yt-featured {
+    max-width: 860px;
+    margin-bottom: 64px;
+  }
+  .yt-featured-label {
+    font-family: 'Share Tech Mono', monospace; font-size: 10px;
+    letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  }
+  .yt-featured-label::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
+  .yt-embed-wrap {
+    position: relative; padding-bottom: 56.25%; height: 0;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .yt-embed-wrap iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: none;
+  }
+  .yt-embed-caption {
+    margin-top: 12px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    letter-spacing: 2px; color: var(--white);
+  }
   .yt-intro { max-width: 600px; margin-bottom: 48px; }
   .yt-intro p { font-size: 16px; font-weight: 300; color: var(--text); line-height: 1.8; }
   .yt-intro p strong { color: var(--white); }
@@ -306,37 +432,24 @@
     text-decoration: none; display: block;
   }
   .yt-card:hover { transform: translateY(-4px); }
-  .yt-thumb {
-    width: 100%; aspect-ratio: 16/9;
-    background: var(--dark-2);
-    position: relative; overflow: hidden;
-  }
+  .yt-thumb { width: 100%; aspect-ratio: 16/9; background: var(--dark-2); position: relative; overflow: hidden; }
   .yt-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: filter 0.3s; }
   .yt-card:hover .yt-thumb img { filter: brightness(1); }
-  .yt-thumb-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #0D0F14, #1a1f2e);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 12px;
-  }
   .yt-play-btn {
-    width: 52px; height: 52px;
-    background: rgba(201,168,76,0.15);
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.2s;
   }
-  .yt-card:hover .yt-play-btn { background: rgba(201,168,76,0.3); }
-  .yt-play-btn svg { margin-left: 4px; }
-  .yt-label-sm { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); }
+  .yt-card:hover .yt-play-btn { opacity: 1; }
+  .yt-play-icon {
+    width: 52px; height: 52px;
+    background: rgba(201,168,76,0.9); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
   .yt-body { padding: 20px; }
   .yt-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; line-height: 1.2; }
-  .yt-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
   .yt-channel-link {
     display: inline-flex; align-items: center; gap: 10px;
-    margin-top: 48px;
-    padding: 16px 32px;
+    margin-top: 48px; padding: 16px 32px;
     background: rgba(255,0,0,0.08); border: 1px solid rgba(255,0,0,0.3);
     color: #ff4444; text-decoration: none;
     font-family: 'Rajdhani', sans-serif; font-size: 14px;
@@ -348,13 +461,37 @@
 
   /* ── EXPERIENCE ── */
   .experience { background: var(--dark-2); }
-  .timeline { max-width: 800px; position: relative; padding-left: 48px; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), transparent); }
-  .timeline-item { position: relative; margin-bottom: 56px; }
-  .timeline-item::before { content: ''; position: absolute; left: -52px; top: 6px; width: 9px; height: 9px; background: var(--gold); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-  .timeline-date { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
-  .timeline-company { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); margin-bottom: 4px; }
-  .timeline-role { font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 16px; }
+  .timeline { max-width: 860px; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item { position: relative; margin-bottom: 64px; padding-left: 48px; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -4px; top: 8px;
+    width: 9px; height: 9px; background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  .timeline-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 16px; }
+  .studio-badge {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 14px;
+    letter-spacing: 1px; color: var(--gold);
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    position: relative;
+  }
+  .studio-badge::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+  }
+  .timeline-meta { flex: 1; }
+  .timeline-date { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+  .timeline-company { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; color: var(--white); margin-bottom: 2px; line-height: 1; }
+  .timeline-role { font-size: 13px; font-weight: 600; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
   .timeline-desc { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.8; }
 
   /* ── CONTACT ── */
@@ -381,6 +518,10 @@
   .corner-br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 40px; }
+    .hero-photo-wrap { align-self: center; }
+  }
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -390,6 +531,7 @@
     .award-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); padding: 24px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .scroll-hint { left: 24px; }
+    .hero-photo-frame { width: 220px; height: 270px; }
   }
 </style>
 </head>
@@ -413,18 +555,38 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Unity · Multiplayer Systems · Game Developer</div>
-    <h1 class="hero-name">
-      AliReza<span>Khishvand</span>
-    </h1>
-    <div class="hero-title">Gameplay &amp; Systems Developer</div>
-    <p class="hero-desc">
-      I build scalable gameplay systems, real-time multiplayer mechanics, and production-ready Unity projects across multiple genres — from core combat loops to server-authoritative architectures.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-outline">Hire Me</a>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Unity · Multiplayer Systems · Game Developer</div>
+      <h1 class="hero-name">
+        AliReza<span>Khishvand</span>
+      </h1>
+      <div class="hero-title">Gameplay &amp; Systems Developer</div>
+      <p class="hero-desc">
+        I build scalable gameplay systems, real-time multiplayer mechanics, and production-ready Unity projects across multiple genres — from core combat loops to server-authoritative architectures.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Hire Me</a>
+      </div>
+    </div>
+
+    <!-- HERO PHOTO -->
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <!-- REPLACE THIS BLOCK with: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;"> -->
+        <img src="AliReza.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Add your photo here — replace the placeholder div with an img tag</span>
+        </div>
+      </div>
+      <div class="hero-photo-corner tl"></div>
+      <div class="hero-photo-corner tr"></div>
+      <div class="hero-photo-corner bl"></div>
+      <div class="hero-photo-corner br"></div>
+      <div class="hero-photo-label">Alireza Khishvand</div>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
@@ -481,19 +643,19 @@
     </div>
     <div class="stats-grid">
       <div class="stat-box">
-        <div class="stat-num">2×</div>
+        <div class="stat-num" data-target="2" data-suffix="×">0×</div>
         <div class="stat-label">Golden Deer Awards</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">4+</div>
+        <div class="stat-num" data-target="4" data-suffix="+">0+</div>
         <div class="stat-label">Shipped Projects</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">4</div>
+        <div class="stat-num" data-target="4" data-suffix="">0</div>
         <div class="stat-label">Multiplayer Stacks</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">3+</div>
+        <div class="stat-num" data-target="3" data-suffix="+">0+</div>
         <div class="stat-label">Game Genres</div>
       </div>
     </div>
@@ -508,8 +670,12 @@
     <div class="tech-cat">
       <div class="tech-cat-label">Multiplayer Networks</div>
       <div class="tech-items">
-        <span class="tech-tag highlight">Photon PUN2</span>
-        <span class="tech-tag highlight">Photon Fusion</span>
+        <span class="tech-tag highlight">
+          <img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon PUN2
+        </span>
+        <span class="tech-tag highlight">
+          <img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon Fusion
+        </span>
         <span class="tech-tag highlight">Mirror</span>
         <span class="tech-tag highlight">Netcode for GameObjects</span>
         <span class="tech-tag highlight">TCP Sockets</span>
@@ -520,8 +686,12 @@
     <div class="tech-cat">
       <div class="tech-cat-label">Unity Core</div>
       <div class="tech-items">
-        <span class="tech-tag highlight">Unity</span>
-        <span class="tech-tag highlight">C#</span>
+        <span class="tech-tag highlight">
+          <img src="https://cdn.simpleicons.org/unity/C9A84C" alt="">Unity 3D
+        </span>
+        <span class="tech-tag highlight">
+          <img src="https://cdn.simpleicons.org/csharp/C9A84C" alt="">C#
+        </span>
         <span class="tech-tag">URP</span>
         <span class="tech-tag">Addressables</span>
         <span class="tech-tag">Editor Scripting</span>
@@ -548,7 +718,9 @@
         <span class="tech-tag">Auth Systems</span>
         <span class="tech-tag">Zepeto</span>
         <span class="tech-tag">Gmail Login</span>
-        <span class="tech-tag">Git / GitHub</span>
+        <span class="tech-tag">
+          <img src="https://cdn.simpleicons.org/github/B8BFD0" alt="">Git / GitHub
+        </span>
         <span class="tech-tag">Agile</span>
       </div>
     </div>
@@ -565,20 +737,31 @@
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">POOKEH</div>
+        <div class="card-badge">🦌 2× Golden Deer</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">PC · Realtime PvP · Multiplayer Shooter -🦌 2x Golden Deer Award</div>
+        <div class="card-platform">PC · Realtime PvP · Multiplayer Shooter</div>
         <div class="card-title">Pookeh</div>
         <p class="card-desc">Fast-paced online multiplayer shooter with real-time PvP combat, team-based gameplay, and multiple competitive modes. Built core combat systems, player interaction (PvP mechanics), character & weapon systems, and all gameplay modes.</p>
         <div class="card-tags">
-          <span class="card-tag">🦌 2x Golden Deer</span>
           <span class="card-tag">Multiplayer</span>
           <span class="card-tag">PvP</span>
           <span class="card-tag">Unity</span>
-          <span class="card-tag">C#</span>
+          <span class="card-tag">Photon</span>
+        </div>
+        <div class="card-store-btns">
+          <a href="https://www.youtube.com/watch?v=Ndxj9DbeLCI" target="_blank" class="store-btn watch">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            Watch Gameplay
+          </a>
+          <a href="https://cafebazaar.ir/app/com.PilehGames.Lotus" class="store-btn pc">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Android Cafebazar
+          </a>
         </div>
       </div>
     </div>
+
     <!-- Train Town -->
     <div class="project-card">
       <div class="card-img-wrap">
@@ -594,10 +777,20 @@
           <span class="card-tag">SDK Integration</span>
           <span class="card-tag">Zepeto</span>
         </div>
+        <div class="card-store-btns">
+          <a href="https://play.google.com/store/apps/details?id=com.jr.mintrain" class="store-btn google">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
+            Google Play
+          </a>
+          <a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3/id6739932061" class="store-btn apple">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Dobiel -->
+    <!-- Dobiel MOBA -->
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">DOBIEL</div>
@@ -610,6 +803,12 @@
           <span class="card-tag">Server-Auth</span>
           <span class="card-tag">MOBA</span>
           <span class="card-tag">Custom Networking</span>
+        </div>
+        <div class="card-store-btns">
+          <a href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank" class="store-btn watch">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            Watch Gameplay
+          </a>
         </div>
       </div>
     </div>
@@ -629,8 +828,61 @@
           <span class="card-tag">Procedural</span>
           <span class="card-tag">Unity</span>
         </div>
+        <div class="card-store-btns">
+          <a href="https://cafebazaar.ir/app/studio.enchanters.dinoway" class="store-btn google">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
+            Android cafebazaar
+          </a>
+        </div>
       </div>
     </div>
+
+    <!-- WordRace -->
+    <div class="project-card">
+      <div class="card-img-wrap">
+        <div class="card-img-placeholder">WORD</div>
+      </div>
+      <div class="card-body">
+        <div class="card-platform">Mobile · Published · Badbadak Haft Aseman</div>
+        <div class="card-title">WordRace</div>
+        <p class="card-desc">Published mobile multiplayer word game developed at Badbadak Haft Aseman (100+ team). Contributed multiplayer features, core gameplay systems, and ensured a smooth launch to market.</p>
+        <div class="card-tags">
+          <span class="card-tag">Multiplayer</span>
+          <span class="card-tag">Word Game</span>
+          <span class="card-tag">Published</span>
+        </div>
+        <div class="card-store-btns">
+          <a href="https://wordrace.wini.games/" class="store-btn google">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
+            WebGL Page
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backgammon -->
+    <div class="project-card">
+      <div class="card-img-wrap">
+        <div class="card-img-placeholder">BACKGAMMON</div>
+      </div>
+      <div class="card-body">
+        <div class="card-platform">Mobile · Published · Badbadak Haft Aseman</div>
+        <div class="card-title">Backgammon</div>
+        <p class="card-desc">Published mobile backgammon with online multiplayer, developed at a studio with 100+ employees. Contributed to core game logic, multiplayer systems, and successful market launch.</p>
+        <div class="card-tags">
+          <span class="card-tag">Multiplayer</span>
+          <span class="card-tag">Board Game</span>
+          <span class="card-tag">Published</span>
+        </div>
+        <div class="card-store-btns">
+          <a href="http://backgammon.wini.games/" class="store-btn google">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
+            WebGL Page
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -638,6 +890,21 @@
 <section class="youtube" id="youtube">
   <div class="section-label reveal">Content</div>
   <h2 class="section-title reveal">Zero To<br>Game</h2>
+
+  <!-- Featured Embed -->
+  <!-- <div class="yt-featured reveal">
+    <div class="yt-featured-label">Featured Video</div>
+    <div class="yt-embed-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/HMJwhbS_e68"
+        title="Dobiel MOBA Gameplay Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="yt-embed-caption">Dobiel | MOBA Gameplay Demo — Server-Authoritative Multiplayer Prototype</div>
+  </div>-->
+
   <div class="yt-intro reveal">
     <p>
       I document my systems, gameplay experiments, and development process on <strong>YouTube</strong>.
@@ -646,54 +913,47 @@
   </div>
 
   <div class="yt-grid reveal">
-
-    <!-- VIDEO CARD 1 — replace href and thumbnail src with your real video URL & thumbnail -->
     <a class="yt-card" href="https://www.youtube.com/watch?v=F9coDnuH7TU&t=6s" target="_blank">
       <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
-        <div class="yt-thumb-placeholder">
-          <div class="yt-play-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+        <img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" alt="Train Town Gameplay">
+        <div class="yt-play-btn">
+          <div class="yt-play-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <div class="yt-label-sm">PASTE YOUR VIDEO THUMBNAIL HERE</div>
         </div>
       </div>
       <div class="yt-body">
-        <div class="yt-title">Everyone’s Train Town gameplay showcase – build your own railway city!</div>
-        <!--div class="yt-desc">Replace this card with your first video — paste the YouTube URL into the href above and add a thumbnail image.</div> -->
+        <div class="yt-title">Everyone's Train Town Gameplay Showcase</div>
       </div>
     </a>
 
-    <!-- VIDEO CARD 2 -->
     <a class="yt-card" href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank">
       <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
-        <div class="yt-thumb-placeholder">
-          <div class="yt-play-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+        <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" alt="Dobiel MOBA Demo">
+        <div class="yt-play-btn">
+          <div class="yt-play-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
         </div>
       </div>
       <div class="yt-body">
-        <div class="yt-title">Dobiel | MOBA Gameplay Demo (Server-Authoritative Multiplayer Prototype)</div>
+        <div class="yt-title">Dobiel | MOBA Gameplay Demo — Server-Authoritative Prototype</div>
       </div>
     </a>
 
-    <!-- VIDEO CARD 3 -->
     <a class="yt-card" href="https://www.youtube.com/shorts/VS3cV1VbruY" target="_blank">
       <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" width="18" height="18" viewBox="0 0 24 24" alt="Video Thumbnail" class="yt-thumb-img">
-        <div class="yt-thumb-placeholder">
-          <div class="yt-play-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg>
+        <img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" alt="Dino Memory Adventure">
+        <div class="yt-play-btn">
+          <div class="yt-play-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
         </div>
       </div>
       <div class="yt-body">
-        <div class="yt-title">Dino Memory Adventure 🦖 | Puzzle Game Gameplay (Save the Lost Love!)</div>
+        <div class="yt-title">Dino Memory Adventure 🦖 | Puzzle Game Gameplay</div>
       </div>
     </a>
-
   </div>
 
   <a href="https://www.youtube.com/@ZeroToGameByAliReza" target="_blank" class="yt-channel-link reveal">
@@ -708,25 +968,56 @@
   <h2 class="section-title reveal">Battle<br>History</h2>
   <div class="timeline reveal">
 
+    <!-- Alif -->
     <div class="timeline-item">
-      <div class="timeline-date">Current</div>
-      <div class="timeline-company">Alif Game Studio</div>
-      <div class="timeline-role">Senior Unity Developer</div>
+      <div class="timeline-header">
+        <div class="studio-badge">ALF</div>
+        <div class="timeline-meta">
+          <div class="timeline-date">Sep 2024 – Current</div>
+          <div class="timeline-company">Alif Game Studio</div>
+          <div class="timeline-role">Senior Unity Developer · 🦌 Golden Deer Award</div>
+        </div>
+      </div>
       <p class="timeline-desc">Built core gameplay and multiplayer systems for a shipped title that earned the Golden Deer Award at Fajr International Game Festival. Focused on real-time online gameplay, architecture, and player-facing features.</p>
     </div>
 
+    <!-- ANU -->
     <div class="timeline-item">
-      <div class="timeline-date">Foundational</div>
-      <div class="timeline-company">ANU Game Studio</div>
-      <div class="timeline-role">Unity Developer · 🦌 2x Golden Deer Award</div>
-      <p class="timeline-desc">Contributed to an award-winning title. Led gameplay programming and system design, delivered performance-optimized builds, and built foundational systems that helped the project win at Fajr Game Festival.</p>
+      <div class="timeline-header">
+        <div class="studio-badge">ANU</div>
+        <div class="timeline-meta">
+          <div class="timeline-date">Sep 2023 – Sep 2024</div>
+          <div class="timeline-company">ANU Game Studio</div>
+          <div class="timeline-role">Unity Developer · 🦌 2× Golden Deer Award</div>
+        </div>
+      </div>
+      <p class="timeline-desc">Contributed to an award-winning title (Pookeh). Led gameplay programming and system design, delivered performance-optimized builds, and built foundational systems that helped the project win at Fajr Game Festival.</p>
     </div>
 
+    <!-- Badbadak -->
     <div class="timeline-item">
-      <div class="timeline-date">Previous</div>
-      <div class="timeline-company">Badbadak Haft Aseman</div>
-      <div class="timeline-role">Unity Gameplay & Systems Developer</div>
-      <p class="timeline-desc">Shipping multiplayer features and core gameplay systems. Responsible for network architecture decisions, real-time synchronization, and gameplay programming across the full development stack.</p>
+      <div class="timeline-header">
+        <div class="studio-badge">BBK</div>
+        <div class="timeline-meta">
+          <div class="timeline-date">Mar 2020 – Jul 2022</div>
+          <div class="timeline-company">Badbadak Haft Aseman</div>
+          <div class="timeline-role">Unity Gameplay & Systems Developer</div>
+        </div>
+      </div>
+      <p class="timeline-desc">Shipped multiplayer features and core gameplay systems for two published titles (WordRace & Backgammon) at a studio with 100+ employees. Responsible for network architecture, real-time synchronization, and gameplay programming.</p>
+    </div>
+
+    <!-- Dobiel -->
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div class="studio-badge">DBL</div>
+        <div class="timeline-meta">
+          <div class="timeline-date">Jul 2017 – Mar 2020</div>
+          <div class="timeline-company">DOBIEL Game Studio</div>
+          <div class="timeline-role">Solo Developer — MOBA Prototype</div>
+        </div>
+      </div>
+      <p class="timeline-desc">Spearheaded full development of a MOBA prototype in Unity as solo developer. Built a complete server-authoritative architecture with input-based networking, creep/tower/combat sync, and all core MOBA systems.</p>
     </div>
 
   </div>
@@ -757,11 +1048,13 @@
     <a href="#tech">Stack</a>
     <a href="#projects">Projects</a>
     <a href="#youtube">YouTube</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
 
 <script>
+  // ── Reveal on scroll ──
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -769,6 +1062,26 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // ── Animated stat counters ──
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        const target = parseInt(entry.target.dataset.target);
+        const suffix = entry.target.dataset.suffix || '';
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 20));
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          entry.target.textContent = current + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 60);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(el => statObserver.observe(el));
 </script>
 </body>
 </html>
