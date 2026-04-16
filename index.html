@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AliReza Khishvand — Unity Multiplayer Developer</title>
+
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23050608'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='%23C9A84C'>AK</text></svg>">
+
+<!-- ── OPEN GRAPH ── -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AliReza Khishvand — Unity Multiplayer Developer">
+<meta property="og:description" content="Unity Gameplay & Systems Developer specializing in real-time multiplayer. 2× Golden Deer Award winner. Open to remote & relocation.">
+<meta property="og:image" content="AliReza.jpg">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AliReza Khishvand — Unity Multiplayer Developer">
+<meta name="twitter:description" content="Unity Gameplay & Systems Developer specializing in real-time multiplayer. 2× Golden Deer Award winner.">
+<meta name="twitter:image" content="AliReza.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -508,7 +523,181 @@
   .footer-links a { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
 
-  /* ── REVEAL ── */
+  /* ── HAMBURGER MENU ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(5,6,8,0.97);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 6px;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--gold); }
+  .nav-mobile-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none; border: none;
+    color: var(--gold); font-size: 32px;
+    cursor: pointer; line-height: 1;
+  }
+
+  /* ── AVAILABLE BADGE ── */
+  .available-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(0, 200, 100, 0.08);
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    margin-bottom: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #00c864;
+    text-transform: uppercase;
+    animation: fadeUp 0.8s ease both;
+  }
+  .available-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #00c864;
+    animation: availPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes availPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,100,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(0,200,100,0); }
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--dark); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2px; max-width: 1100px; }
+  .testimonial-card {
+    background: var(--dark-3);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .testimonial-card:hover { transform: translateY(-4px); }
+  .testimonial-card::before {
+    content: '"';
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px; line-height: 1;
+    color: rgba(201,168,76,0.07);
+    pointer-events: none;
+  }
+  .testimonial-card::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .testimonial-card:hover::after { transform: scaleX(1); }
+  .testimonial-quote {
+    font-size: 16px; font-weight: 300; color: var(--text);
+    line-height: 1.85; margin-bottom: 32px;
+    position: relative; z-index: 1;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 16px;
+    position: relative; z-index: 1;
+  }
+  .testimonial-avatar {
+    width: 48px; height: 48px;
+    background: var(--dark-2);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 1px; color: var(--gold);
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 2px; color: var(--white);
+    line-height: 1.1;
+  }
+  .testimonial-role {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--muted); text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .testimonial-li {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .testimonial-li svg { flex-shrink: 0; }
+
+  /* ── YOUTUBE EMBED FIX ── */
+  .yt-facade {
+    position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+    background: var(--dark-2); cursor: pointer;
+    border: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+  }
+  .yt-facade img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .yt-facade:hover img { opacity: 1; }
+  .yt-facade-btn {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .yt-facade-play {
+    width: 72px; height: 72px;
+    background: rgba(201,168,76,0.9);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .yt-facade:hover .yt-facade-play { transform: scale(1.1); background: var(--gold); }
+
+
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -525,6 +714,7 @@
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .hero, section { padding: 80px 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .awards-inner { flex-direction: column; }
@@ -544,11 +734,27 @@
     <li><a href="#about">About</a></li>
     <li><a href="#tech">Stack</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#youtube">YouTube</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="nav-mobile" id="mobileMenu">
+  <button class="nav-mobile-close" id="mobileClose">✕</button>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#tech" class="mobile-link">Stack</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#youtube" class="mobile-link">YouTube</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -557,6 +763,10 @@
   <div class="hero-glow-2"></div>
   <div class="hero-inner">
     <div class="hero-content">
+      <div class="available-badge">
+        <span class="available-dot"></span>
+        Open to Work · Remote &amp; Relocation
+      </div>
       <div class="hero-tag">Unity · Multiplayer Systems · Game Developer</div>
       <h1 class="hero-name">
         AliReza<span>Khishvand</span>
@@ -567,6 +777,9 @@
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="https://drive.google.com/file/d/1dTvee9oXxLceVYC1UVuHA1Og5PKfeaDI/view" download class="btn-primary" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">
+          ↓ Download CV
+        </a>
         <a href="#contact" class="btn-outline">Hire Me</a>
       </div>
     </div>
@@ -886,24 +1099,70 @@
   </div>
 </section>
 
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label reveal">Social Proof</div>
+  <h2 class="section-title reveal">What<br>Teammates<br>Say</h2>
+  <div class="testimonials-grid reveal">
+
+    <a class="testimonial-card" href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" rel="noopener">
+      <p class="testimonial-quote">
+        "A person with high perseverance, speed in learning, interest in progress, and challenges."
+      </p>
+      <div class="testimonial-author">
+        <img src="https://media.licdn.com/dms/image/v2/D4E03AQESEyyHslSoTw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1690314022330?e=1778112000&v=beta&t=iWrpMvkvQcKGPNW_Cj8L6Gu0n4lZjzX3qSn5knksK7I">
+        <div>
+          <div class="testimonial-name">Ex-Colleague</div>
+          <div class="testimonial-role">Ebrahim Karimi · Badbadak Haft Aseman</div>
+          <div class="testimonial-li">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            View on LinkedIn
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="testimonial-card" href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" rel="noopener">
+      <p class="testimonial-quote">
+        "It was a really pleasure for me to work with AliReza. We worked perfectly together. He is a hard-working and motivated programmer. He has good experience in game development. He was one of the most talented and successful programmers on the Wini team."
+      </p>
+      <div class="testimonial-author">
+        <img src="https://media.licdn.com/dms/image/v2/C4E03AQE7cIRFW1TTlQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1623183845438?e=1778112000&v=beta&t=G91qvZg_643mkm_MqOHdk8oI2yU5xsfipn9wxxUS5tE">
+        <div>
+          <div class="testimonial-name">Ex-Colleague</div>
+          <div class="testimonial-role">Sajad Imani · Badbadak Haft Aseman(Wini Team)</div>
+          <div class="testimonial-li">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            View on LinkedIn
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+  <!--<p class="reveal" style="margin-top:32px; font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--muted);">
+    ↑ PLACEHOLDER TEXT — replace with your actual LinkedIn recommendations · <a href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" style="color:var(--gold); text-decoration:none;">linkedin.com/in/alireza-khishvand</a>
+  </p>-->
+</section>
+
 <!-- ── YOUTUBE ── -->
 <section class="youtube" id="youtube">
   <div class="section-label reveal">Content</div>
   <h2 class="section-title reveal">Zero To<br>Game</h2>
 
-  <!-- Featured Embed -->
-  <!-- <div class="yt-featured reveal">
+  <!-- Featured Embed — click-to-load to avoid 503 errors -->
+  <div class="yt-featured reveal">
     <div class="yt-featured-label">Featured Video</div>
-    <div class="yt-embed-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/HMJwhbS_e68"
-        title="Dobiel MOBA Gameplay Demo"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    <div class="yt-facade" id="ytFacade" onclick="loadYT(this)" data-videoid="HMJwhbS_e68">
+      <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" alt="Dobiel MOBA Gameplay Demo">
+      <div class="yt-facade-btn">
+        <div class="yt-facade-play">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#050608"><polygon points="6,3 20,12 6,21"/></svg>
+        </div>
+      </div>
     </div>
     <div class="yt-embed-caption">Dobiel | MOBA Gameplay Demo — Server-Authoritative Multiplayer Prototype</div>
-  </div>-->
+  </div>
 
   <div class="yt-intro reveal">
     <p>
@@ -1047,6 +1306,7 @@
     <a href="#about">About</a>
     <a href="#tech">Stack</a>
     <a href="#projects">Projects</a>
+    <a href="#testimonials">Reviews</a>
     <a href="#youtube">YouTube</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
@@ -1082,6 +1342,41 @@
     });
   }, { threshold: 0.5 });
   statNums.forEach(el => statObserver.observe(el));
+
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileClose.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── YouTube facade — click to load real player ──
+  function loadYT(el) {
+    const videoId = el.dataset.videoid;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    el.innerHTML = '';
+    el.style.cursor = 'default';
+    el.appendChild(iframe);
+  }
 </script>
 </body>
 </html>
