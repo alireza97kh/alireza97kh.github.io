@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AliReza Khishvand — Unity Multiplayer Developer</title>
 
-<!-- ── FAVICON ── -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23050608'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='28' font-weight='bold' fill='%23C9A84C'>AK</text></svg>">
 
-<!-- ── OPEN GRAPH ── -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="AliReza Khishvand — Unity Multiplayer Developer">
 <meta property="og:description" content="Unity Gameplay & Systems Developer specializing in real-time multiplayer. 2× Golden Deer Award winner. Open to remote & relocation.">
@@ -73,6 +71,9 @@
     letter-spacing: 4px;
     color: var(--gold);
     text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
   }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
@@ -182,22 +183,6 @@
     background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, transparent 60%);
     z-index: 2;
   }
-  .hero-photo-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 12px;
-    background: linear-gradient(160deg, #0D0F14 0%, #1a1f2c 100%);
-  }
-  .hero-photo-placeholder svg { opacity: 0.25; }
-  .hero-photo-placeholder span {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px; letter-spacing: 3px;
-    color: var(--gold); text-transform: uppercase;
-    opacity: 0.6; text-align: center; padding: 0 20px;
-  }
-  /* When you have a real photo, replace .hero-photo-placeholder with: */
-  /* <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> */
   .hero-photo-corner {
     position: absolute;
     width: 20px; height: 20px;
@@ -224,6 +209,7 @@
     text-decoration: none;
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     transition: background 0.2s, transform 0.2s;
+    cursor: pointer; border: none;
   }
   .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
   .btn-outline {
@@ -234,6 +220,7 @@
     text-decoration: none;
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     transition: border-color 0.2s, color 0.2s;
+    cursor: pointer; background: none;
   }
   .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
   .scroll-hint {
@@ -281,6 +268,110 @@
   .award-text .label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
   .award-text .title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--white); line-height: 1.1; }
   .award-text .sub { font-size: 13px; color: var(--muted); font-weight: 300; }
+
+  /* ── FLAGSHIP STRIP ── */
+  .flagship {
+    background: var(--dark-3);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 72px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .flagship::before {
+    content: 'FLAGSHIP';
+    position: absolute;
+    top: -10px; right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: rgba(201,168,76,0.03);
+    letter-spacing: 20px;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .flagship-inner {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+  .flagship-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .flagship-label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+  .flagship-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 5vw, 64px);
+    letter-spacing: 4px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .flagship-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text);
+    max-width: 580px;
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+  .flagship-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .flagship-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .flagship-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-shrink: 0;
+    min-width: 180px;
+  }
+  .flagship-stat {
+    background: var(--dark-2);
+    padding: 18px 24px;
+    border-left: 3px solid var(--gold);
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .flagship-stat:hover { background: rgba(201,168,76,0.05); }
+  .flagship-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .flagship-stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
 
   /* ── SECTIONS ── */
   section { padding: 100px 48px; }
@@ -377,61 +468,70 @@
   .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
   .card-tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; padding: 3px 8px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18); color: var(--muted); text-transform: uppercase; }
 
+  /* Case Study CTA button */
+  .btn-case-study {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 20px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.25s;
+    margin-bottom: 12px;
+  }
+  .btn-case-study:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+    color: var(--gold-bright);
+  }
+  .btn-case-study .cs-arrow {
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  .btn-case-study:hover .cs-arrow { transform: translateX(5px); }
+
   /* ── STORE BUTTONS ── */
   .card-store-btns { display: flex; gap: 8px; flex-wrap: wrap; }
   .store-btn {
     display: inline-flex; align-items: center; gap: 7px;
-    padding: 8px 14px;
-    font-family: 'Rajdhani', sans-serif; font-size: 12px;
+    padding: 7px 12px;
+    font-family: 'Rajdhani', sans-serif; font-size: 11px;
     font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
     text-decoration: none;
     border: 1px solid;
     transition: all 0.2s;
-    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
   }
   .store-btn svg { flex-shrink: 0; }
-  .store-btn.google {
-    border-color: rgba(201,168,76,0.5); color: var(--gold);
-    background: rgba(201,168,76,0.08);
-  }
+  .store-btn.google { border-color: rgba(201,168,76,0.5); color: var(--gold); background: rgba(201,168,76,0.08); }
   .store-btn.google:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); }
-  .store-btn.apple {
-    border-color: rgba(184,191,208,0.4); color: var(--text);
-    background: rgba(184,191,208,0.06);
-  }
+  .store-btn.apple { border-color: rgba(184,191,208,0.4); color: var(--text); background: rgba(184,191,208,0.06); }
   .store-btn.apple:hover { background: rgba(184,191,208,0.15); border-color: var(--text); }
-  .store-btn.watch {
-    border-color: rgba(215,38,56,0.5); color: #ff5566;
-    background: rgba(215,38,56,0.08);
-  }
+  .store-btn.watch { border-color: rgba(215,38,56,0.5); color: #ff5566; background: rgba(215,38,56,0.08); }
   .store-btn.watch:hover { background: rgba(215,38,56,0.18); border-color: #ff5566; }
-  .store-btn.pc {
-    border-color: rgba(101,120,200,0.5); color: #8899ff;
-    background: rgba(101,120,200,0.08);
-  }
+  .store-btn.pc { border-color: rgba(101,120,200,0.5); color: #8899ff; background: rgba(101,120,200,0.08); }
   .store-btn.pc:hover { background: rgba(101,120,200,0.18); border-color: #8899ff; }
+  .store-btn.web { border-color: rgba(100,180,150,0.5); color: #70c8a0; background: rgba(100,180,150,0.08); }
+  .store-btn.web:hover { background: rgba(100,180,150,0.18); border-color: #70c8a0; }
 
   /* ── YOUTUBE ── */
   .youtube { background: var(--dark); }
-  .yt-featured {
-    max-width: 860px;
-    margin-bottom: 64px;
-  }
+  .yt-featured { max-width: 860px; margin-bottom: 64px; }
   .yt-featured-label {
     font-family: 'Share Tech Mono', monospace; font-size: 10px;
     letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
     margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
   }
   .yt-featured-label::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
-  .yt-embed-wrap {
-    position: relative; padding-bottom: 56.25%; height: 0;
-    background: var(--dark-2);
-    border: 1px solid rgba(201,168,76,0.2);
-  }
-  .yt-embed-wrap iframe {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; border: none;
-  }
   .yt-embed-caption {
     margin-top: 12px;
     font-family: 'Bebas Neue', sans-serif; font-size: 18px;
@@ -473,6 +573,33 @@
     transition: background 0.2s, border-color 0.2s;
   }
   .yt-channel-link:hover { background: rgba(255,0,0,0.15); border-color: rgba(255,0,0,0.6); }
+
+  /* ── YT FACADE ── */
+  .yt-facade {
+    position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+    background: var(--dark-2); cursor: pointer;
+    border: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+  }
+  .yt-facade img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .yt-facade:hover img { opacity: 1; }
+  .yt-facade-btn {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .yt-facade-play {
+    width: 72px; height: 72px;
+    background: rgba(201,168,76,0.9);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .yt-facade:hover .yt-facade-play { transform: scale(1.1); background: var(--gold); }
 
   /* ── EXPERIENCE ── */
   .experience { background: var(--dark-2); }
@@ -523,84 +650,6 @@
   .footer-links a { font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
 
-  /* ── HAMBURGER MENU ── */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--gold);
-    transition: all 0.3s;
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .nav-mobile {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(5,6,8,0.97);
-    z-index: 99;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-  }
-  .nav-mobile.open { display: flex; }
-  .nav-mobile a {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    letter-spacing: 6px;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-mobile a:hover { color: var(--gold); }
-  .nav-mobile-close {
-    position: absolute;
-    top: 24px; right: 24px;
-    background: none; border: none;
-    color: var(--gold); font-size: 32px;
-    cursor: pointer; line-height: 1;
-  }
-
-  /* ── AVAILABLE BADGE ── */
-  .available-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: rgba(0, 200, 100, 0.08);
-    border: 1px solid rgba(0, 200, 100, 0.3);
-    margin-bottom: 20px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #00c864;
-    text-transform: uppercase;
-    animation: fadeUp 0.8s ease both;
-  }
-  .available-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #00c864;
-    animation: availPulse 2s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-  @keyframes availPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,100,0.5); }
-    50% { box-shadow: 0 0 0 6px rgba(0,200,100,0); }
-  }
-
   /* ── TESTIMONIALS ── */
   .testimonials { background: var(--dark); }
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2px; max-width: 1100px; }
@@ -630,16 +679,8 @@
     transition: transform 0.3s;
   }
   .testimonial-card:hover::after { transform: scaleX(1); }
-  .testimonial-quote {
-    font-size: 16px; font-weight: 300; color: var(--text);
-    line-height: 1.85; margin-bottom: 32px;
-    position: relative; z-index: 1;
-    font-style: italic;
-  }
-  .testimonial-author {
-    display: flex; align-items: center; gap: 16px;
-    position: relative; z-index: 1;
-  }
+  .testimonial-quote { font-size: 16px; font-weight: 300; color: var(--text); line-height: 1.85; margin-bottom: 32px; position: relative; z-index: 1; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
   .testimonial-avatar {
     width: 48px; height: 48px;
     background: var(--dark-2);
@@ -649,18 +690,11 @@
     font-size: 18px; letter-spacing: 1px; color: var(--gold);
     clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
     flex-shrink: 0;
+    overflow: hidden;
   }
-  .testimonial-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px; letter-spacing: 2px; color: var(--white);
-    line-height: 1.1;
-  }
-  .testimonial-role {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px; letter-spacing: 2px;
-    color: var(--muted); text-transform: uppercase;
-    margin-top: 3px;
-  }
+  .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .testimonial-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--white); line-height: 1.1; }
+  .testimonial-role { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 3px; }
   .testimonial-li {
     display: inline-flex; align-items: center; gap: 6px;
     margin-top: 6px;
@@ -670,46 +704,437 @@
   }
   .testimonial-li svg { flex-shrink: 0; }
 
-  /* ── YOUTUBE EMBED FIX ── */
-  .yt-facade {
-    position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none; flex-direction: column;
+    gap: 5px; cursor: pointer; padding: 4px;
+    background: none; border: none;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--gold); transition: all 0.3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(5,6,8,0.97);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 40px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; letter-spacing: 6px;
+    color: var(--white); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--gold); }
+  .nav-mobile-close {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: none;
+    color: var(--gold); font-size: 32px;
+    cursor: pointer; line-height: 1;
+  }
+
+  /* ── AVAILABLE BADGE ── */
+  .available-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: rgba(0, 200, 100, 0.08);
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    margin-bottom: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    color: #00c864; text-transform: uppercase;
+    animation: fadeUp 0.8s ease both;
+  }
+  .available-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%; background: #00c864;
+    animation: availPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes availPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,200,100,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(0,200,100,0); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .corner-tl, .corner-br { position: absolute; width: 24px; height: 24px; pointer-events: none; }
+  .corner-tl { top: 16px; left: 16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+  .corner-br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+
+  /* ══════════════════════════════════════════════
+     PROJECT PAGE STYLES
+  ══════════════════════════════════════════════ */
+
+  .project-page {
+    display: none;
+    animation: pageSlideIn 0.45s ease both;
+  }
+  .project-page.active { display: block; }
+  @keyframes pageSlideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Back / breadcrumb bar */
+  .proj-back {
+    position: sticky;
+    top: 64px;
+    z-index: 90;
+    background: rgba(5,6,8,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .proj-back-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .proj-back-btn:hover { opacity: 0.7; }
+  .proj-breadcrumb {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .proj-breadcrumb span { color: var(--text); }
+
+  /* Project Hero */
+  .proj-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px 48px 60px;
+    overflow: hidden;
+  }
+  .proj-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+  .proj-hero-glow {
+    position: absolute; top: -100px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .proj-hero-glow-red {
+    position: absolute; bottom: -200px; left: -50px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(215,38,56,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .proj-hero-watermark {
+    position: absolute;
+    bottom: -30px; right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 180px);
+    color: rgba(201,168,76,0.035);
+    letter-spacing: 12px;
+    pointer-events: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .proj-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; width: 100%;
+  }
+  .proj-hero-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .proj-hero-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .proj-award-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .proj-award-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.4);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .proj-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    letter-spacing: 3px; color: var(--white);
+    line-height: 0.95; margin-bottom: 20px;
+  }
+  .proj-hero-title span { color: var(--gold); }
+  .proj-hero-subtitle {
+    font-size: 17px; font-weight: 300; color: var(--text);
+    max-width: 620px; line-height: 1.85; margin-bottom: 28px;
+  }
+  .proj-hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Info Bar */
+  .proj-info-bar {
+    background: var(--dark-3);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    display: flex; flex-wrap: wrap;
+  }
+  .proj-info-item {
+    flex: 1; min-width: 130px;
+    padding: 22px 32px;
+    border-right: 1px solid rgba(201,168,76,0.1);
+  }
+  .proj-info-item:last-child { border-right: none; }
+  .proj-info-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 3px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .proj-info-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--white); letter-spacing: 0.5px;
+  }
+
+  /* Content wrapper */
+  .proj-content {
+    max-width: 1100px;
+    padding: 0 48px;
+    margin: 0 auto;
+  }
+  .proj-section {
+    padding: 72px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .proj-section:last-child { border-bottom: none; }
+  .proj-section-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .proj-section-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+  .proj-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: 3px; color: var(--white);
+    line-height: 1; margin-bottom: 36px;
+  }
+  .proj-section-intro {
+    font-size: 16px; font-weight: 300; color: var(--text);
+    line-height: 1.9; max-width: 780px;
+    margin-bottom: 40px;
+  }
+  .proj-section-intro strong { color: var(--white); font-weight: 600; }
+
+  /* Video facade in project pages */
+  .proj-video-facade {
+    position: relative; padding-bottom: 56.25%; height: 0;
     background: var(--dark-2); cursor: pointer;
     border: 1px solid rgba(201,168,76,0.2);
     overflow: hidden;
   }
-  .yt-facade img {
+  .proj-video-facade img {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    object-fit: cover; opacity: 0.7;
+    object-fit: cover; opacity: 0.72;
     transition: opacity 0.3s;
   }
-  .yt-facade:hover img { opacity: 1; }
-  .yt-facade-btn {
+  .proj-video-facade:hover img { opacity: 1; }
+  .proj-video-facade-btn {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
   }
-  .yt-facade-play {
-    width: 72px; height: 72px;
+  .proj-video-play {
+    width: 76px; height: 76px;
     background: rgba(201,168,76,0.9);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     transition: transform 0.2s, background 0.2s;
   }
-  .yt-facade:hover .yt-facade-play { transform: scale(1.1); background: var(--gold); }
+  .proj-video-facade:hover .proj-video-play { transform: scale(1.1); background: var(--gold); }
+  .proj-video-label {
+    margin-top: 12px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px;
+    letter-spacing: 2px; color: var(--white);
+  }
 
+  /* What I Built — contribution grid */
+  .contribution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 2px;
+  }
+  .contribution-item {
+    background: var(--dark-3);
+    padding: 28px 28px 28px 32px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .contribution-item:hover { transform: translateY(-3px); background: rgba(13,15,20,0.9); }
+  .contribution-item::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+  }
+  .contribution-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px; color: rgba(201,168,76,0.1);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .contribution-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 2px; color: var(--white);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .contribution-desc {
+    font-size: 13px; font-weight: 300;
+    color: var(--text); line-height: 1.75;
+  }
 
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* Problems I Solved */
+  .problem-list { display: flex; flex-direction: column; gap: 2px; }
+  .problem-item {
+    background: var(--dark-2);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px; align-items: start;
+    transition: background 0.2s;
+  }
+  .problem-item:hover { background: var(--dark-3); }
+  .problem-challenge-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    color: #ff5566; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .problem-challenge {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--white); letter-spacing: 0.5px;
+    line-height: 1.4;
+  }
+  .problem-solution-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    color: #70c8a0; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .problem-solution {
+    font-size: 15px; font-weight: 300;
+    color: var(--text); line-height: 1.85;
+  }
+  .problem-solution strong { color: var(--white); font-weight: 600; }
 
-  /* ── CORNERS ── */
-  .corner-tl, .corner-br { position: absolute; width: 24px; height: 24px; pointer-events: none; }
-  .corner-tl { top: 16px; left: 16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
-  .corner-br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+  /* Impact */
+  .impact-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px; margin-bottom: 40px;
+  }
+  .impact-stat {
+    background: var(--dark-3); padding: 28px 20px;
+    border-left: 3px solid var(--gold);
+    text-align: center; transition: background 0.2s;
+  }
+  .impact-stat:hover { background: rgba(201,168,76,0.06); }
+  .impact-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: var(--gold);
+    line-height: 1; letter-spacing: 2px;
+  }
+  .impact-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px; letter-spacing: 2px;
+    color: var(--muted); text-transform: uppercase; margin-top: 6px;
+  }
+  .impact-feature-list { display: flex; flex-direction: column; gap: 2px; }
+  .impact-feature {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 24px; background: var(--dark-2);
+    transition: background 0.2s;
+  }
+  .impact-feature:hover { background: var(--dark-3); }
+  .impact-feature-dot {
+    width: 8px; height: 8px;
+    background: var(--gold); border-radius: 50%;
+    flex-shrink: 0; margin-top: 7px;
+  }
+  .impact-feature-text {
+    font-size: 15px; font-weight: 300;
+    color: var(--text); line-height: 1.75;
+  }
+  .impact-feature-text strong { color: var(--white); font-weight: 600; }
+
+  /* Project page footer */
+  .proj-page-footer {
+    background: var(--dark-2);
+    padding: 56px 48px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .proj-page-footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .proj-next-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 32px;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    cursor: pointer; background: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.2s;
+  }
+  .proj-next-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+  .proj-next-btn .arrow { transition: transform 0.2s; }
+  .proj-next-btn:hover .arrow { transform: translateX(4px); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 40px; }
     .hero-photo-wrap { align-self: center; }
+    .flagship-inner { grid-template-columns: 1fr; gap: 32px; }
+    .flagship-stats { flex-direction: row; min-width: auto; }
+    .flagship-stat { flex: 1; }
+    .problem-item { grid-template-columns: 1fr; gap: 16px; }
   }
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
@@ -722,6 +1147,13 @@
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .scroll-hint { left: 24px; }
     .hero-photo-frame { width: 220px; height: 270px; }
+    .flagship { padding: 48px 24px; }
+    .proj-back { padding: 12px 24px; }
+    .proj-hero { padding: 80px 24px 48px; }
+    .proj-info-item { min-width: 50%; }
+    .proj-content { padding: 0 24px; }
+    .proj-page-footer { padding: 40px 24px; }
+    .proj-page-footer-inner { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -729,15 +1161,15 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">AK.DEV</a>
+  <button class="nav-logo" id="navLogo">AK.DEV</button>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#tech">Stack</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#youtube">YouTube</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" class="main-nav-link">About</a></li>
+    <li><a href="#tech" class="main-nav-link">Stack</a></li>
+    <li><a href="#projects" class="main-nav-link">Projects</a></li>
+    <li><a href="#testimonials" class="main-nav-link">Reviews</a></li>
+    <li><a href="#youtube" class="main-nav-link">YouTube</a></li>
+    <li><a href="#experience" class="main-nav-link">Experience</a></li>
+    <li><a href="#contact" class="main-nav-link">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -756,6 +1188,11 @@
   <a href="#contact" class="mobile-link">Contact</a>
 </div>
 
+<!-- ═══════════════════════════════════════
+     MAIN PAGE
+═══════════════════════════════════════ -->
+<div id="page-main">
+
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-grid"></div>
@@ -773,27 +1210,19 @@
       </h1>
       <div class="hero-title">Gameplay &amp; Systems Developer</div>
       <p class="hero-desc">
-        I build scalable gameplay systems, real-time multiplayer mechanics, and production-ready Unity projects across multiple genres — from core combat loops to server-authoritative architectures.
+        8+ years building scalable gameplay systems, real-time multiplayer architectures, and shipped titles — from competitive shooters with 100K+ players to mobile simulation games with 106K+ installs.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="https://drive.google.com/file/d/1dTvee9oXxLceVYC1UVuHA1Og5PKfeaDI/view" download class="btn-primary" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">
+        <button class="btn-primary" data-project="page-pookeh">View Flagship Project</button>
+        <a href="https://drive.google.com/file/d/1dTvee9oXxLceVYC1UVuHA1Og5PKfeaDI/view" target="_blank" class="btn-primary" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">
           ↓ Download CV
         </a>
         <a href="#contact" class="btn-outline">Hire Me</a>
       </div>
     </div>
-
-    <!-- HERO PHOTO -->
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <!-- REPLACE THIS BLOCK with: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;"> -->
         <img src="AliReza.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-          <span>Add your photo here — replace the placeholder div with an img tag</span>
-        </div>
       </div>
       <div class="hero-photo-corner tl"></div>
       <div class="hero-photo-corner tr"></div>
@@ -811,9 +1240,9 @@
     <div class="award-item">
       <div class="award-icon">🦌</div>
       <div class="award-text">
-        <div class="label">2× Winner</div>
-        <div class="title">Golden Deer Award</div>
-        <div class="sub">Fajr International Game Festival</div>
+        <div class="label">Pookeh · 9th Fajr Festival</div>
+        <div class="title">Best Action + Best Technical</div>
+        <div class="sub">+ Honorary Art Diploma · 200+ submissions</div>
       </div>
     </div>
     <div class="award-item">
@@ -835,6 +1264,40 @@
   </div>
 </div>
 
+<!-- ── FLAGSHIP STRIP ── -->
+<div class="flagship reveal">
+  <div class="flagship-inner">
+    <div>
+      <div class="flagship-label">Flagship Project</div>
+      <div class="flagship-title">Pookeh — Company Fighters</div>
+      <p class="flagship-desc">
+        Iran's most-awarded multiplayer shooter. A real-time Hero Shooter with 100K+ registered players — built by a small team, with me owning the entire technical stack: multiplayer architecture, server-side hit validation, lag compensation, tournament system, and all core combat systems.
+      </p>
+      <div class="flagship-badges">
+        <span class="flagship-badge">🦌 Best Action Game</span>
+        <span class="flagship-badge">🏆 Best Technical Achievement</span>
+        <span class="flagship-badge">🎨 Honorary Art Diploma</span>
+        <span class="flagship-badge">9th Fajr International Game Festival</span>
+      </div>
+      <button class="btn-primary" data-project="page-pookeh">View Full Case Study →</button>
+    </div>
+    <div class="flagship-stats">
+      <div class="flagship-stat">
+        <div class="flagship-stat-num">100K+</div>
+        <div class="flagship-stat-label">Players</div>
+      </div>
+      <div class="flagship-stat">
+        <div class="flagship-stat-num">3</div>
+        <div class="flagship-stat-label">Awards</div>
+      </div>
+      <div class="flagship-stat">
+        <div class="flagship-stat-num">5%</div>
+        <div class="flagship-stat-label">Max Packet Loss</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── ABOUT ── -->
 <section class="about" id="about">
   <div class="about-grid reveal">
@@ -842,16 +1305,16 @@
       <div class="section-label">About</div>
       <h2 class="section-title">The Dev<br>Behind<br>The Server</h2>
       <p>
-        I'm a <strong>Unity Gameplay & Systems Developer</strong> specialized in real-time multiplayer. My strength is turning game ideas into working, scalable systems — from core gameplay loops to production-ready multiplayer-ready architectures.
+        I'm a <strong>Unity Gameplay & Systems Developer</strong> with 8+ years of professional experience, specialized in real-time multiplayer. My strength is turning game ideas into working, scalable systems — from core gameplay loops to production-ready multiplayer architectures.
       </p>
       <p>
-        I've shipped projects across multiple genres: <strong>multiplayer shooters, MOBA prototypes, simulation builders, and casual games</strong> — working solo and in team environments across studios.
+        I've shipped projects across multiple genres: <strong>multiplayer hero shooters, MOBA prototypes, mobile simulation builders, and casual games</strong> — working as both sole engineer and within cross-functional teams at studios of all sizes.
       </p>
       <p>
-        My work spans the full stack: <strong>full-cycle development from prototype to production</strong>, with a strong focus on gameplay systems, real-time performance, and clean architecture.
+        My work spans the full stack: <strong>full-cycle development from prototype to production</strong>, with a strong focus on gameplay systems, real-time performance, and clean architecture that teams can actually build on.
       </p>
       <p>
-        I also run <strong>ZeroToGame</strong> on YouTube — a channel where I document and showcase my systems, experiments, and development process.
+        I also run <strong>ZeroToGame</strong> on YouTube — documenting my systems, experiments, and development process for other developers who want to see the real work behind the games.
       </p>
     </div>
     <div class="stats-grid">
@@ -860,16 +1323,16 @@
         <div class="stat-label">Golden Deer Awards</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num" data-target="4" data-suffix="+">0+</div>
-        <div class="stat-label">Shipped Projects</div>
+        <div class="stat-num" data-target="106" data-suffix="K+">0K+</div>
+        <div class="stat-label">Game Installs</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num" data-target="4" data-suffix="">0</div>
-        <div class="stat-label">Multiplayer Stacks</div>
+        <div class="stat-num" data-target="100" data-suffix="K+">0K+</div>
+        <div class="stat-label">Players Reached</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num" data-target="3" data-suffix="+">0+</div>
-        <div class="stat-label">Game Genres</div>
+        <div class="stat-num" data-target="8" data-suffix="+">0+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
     </div>
   </div>
@@ -883,12 +1346,8 @@
     <div class="tech-cat">
       <div class="tech-cat-label">Multiplayer Networks</div>
       <div class="tech-items">
-        <span class="tech-tag highlight">
-          <img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon PUN2
-        </span>
-        <span class="tech-tag highlight">
-          <img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon Fusion
-        </span>
+        <span class="tech-tag highlight"><img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon PUN2</span>
+        <span class="tech-tag highlight"><img src="https://cdn.simpleicons.org/photon/C9A84C" alt="">Photon Fusion</span>
         <span class="tech-tag highlight">Mirror</span>
         <span class="tech-tag highlight">Netcode for GameObjects</span>
         <span class="tech-tag highlight">TCP Sockets</span>
@@ -899,12 +1358,8 @@
     <div class="tech-cat">
       <div class="tech-cat-label">Unity Core</div>
       <div class="tech-items">
-        <span class="tech-tag highlight">
-          <img src="https://cdn.simpleicons.org/unity/C9A84C" alt="">Unity 3D
-        </span>
-        <span class="tech-tag highlight">
-          <img src="https://cdn.simpleicons.org/csharp/C9A84C" alt="">C#
-        </span>
+        <span class="tech-tag highlight"><img src="https://cdn.simpleicons.org/unity/C9A84C" alt="">Unity 3D</span>
+        <span class="tech-tag highlight"><img src="https://cdn.simpleicons.org/csharp/C9A84C" alt="">C#</span>
         <span class="tech-tag">URP</span>
         <span class="tech-tag">Addressables</span>
         <span class="tech-tag">Editor Scripting</span>
@@ -918,23 +1373,21 @@
         <span class="tech-tag highlight">Server-Authoritative</span>
         <span class="tech-tag highlight">State Machine</span>
         <span class="tech-tag highlight">MVC Pattern</span>
-        <span class="tech-tag">Singleton Pattern</span>
+        <span class="tech-tag">Client-Side Prediction</span>
         <span class="tech-tag">Object Pooling</span>
         <span class="tech-tag">Input-Based Networking</span>
-        <span class="tech-tag">Sync Logic</span>
+        <span class="tech-tag">Lag Compensation</span>
       </div>
     </div>
     <div class="tech-cat">
-      <div class="tech-cat-label">Integrations & Services</div>
+      <div class="tech-cat-label">Integrations & Tools</div>
       <div class="tech-items">
-        <span class="tech-tag">SDK Integration</span>
-        <span class="tech-tag">Auth Systems</span>
-        <span class="tech-tag">Zepeto</span>
-        <span class="tech-tag">Gmail Login</span>
-        <span class="tech-tag">
-          <img src="https://cdn.simpleicons.org/github/B8BFD0" alt="">Git / GitHub
-        </span>
-        <span class="tech-tag">Agile</span>
+        <span class="tech-tag">Zepeto SDK</span>
+        <span class="tech-tag">Gmail OAuth</span>
+        <span class="tech-tag">Unity Addressables</span>
+        <span class="tech-tag">Cocos Creator</span>
+        <span class="tech-tag"><img src="https://cdn.simpleicons.org/github/B8BFD0" alt="">Git / GitHub</span>
+        <span class="tech-tag">Agile / Scrum</span>
       </div>
     </div>
   </div>
@@ -950,26 +1403,25 @@
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">POOKEH</div>
-        <div class="card-badge">🦌 2× Golden Deer</div>
+        <div class="card-badge">🦌 3× Festival Awards</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">PC · Realtime PvP · Multiplayer Shooter</div>
+        <div class="card-platform">PC · Hero Shooter · Lead Dev</div>
         <div class="card-title">Pookeh</div>
-        <p class="card-desc">Fast-paced online multiplayer shooter with real-time PvP combat, team-based gameplay, and multiple competitive modes. Built core combat systems, player interaction (PvP mechanics), character & weapon systems, and all gameplay modes.</p>
+        <p class="card-desc">Iran's most-awarded multiplayer shooter. Online Hero Shooter with 100K+ players. I owned the entire technical stack — multiplayer, combat, tournament system, performance.</p>
         <div class="card-tags">
-          <span class="card-tag">Multiplayer</span>
+          <span class="card-tag">Photon Fusion</span>
           <span class="card-tag">PvP</span>
+          <span class="card-tag">Server-Auth</span>
           <span class="card-tag">Unity</span>
-          <span class="card-tag">Photon</span>
         </div>
+        <button class="btn-case-study" data-project="page-pookeh">View Case Study <span class="cs-arrow">→</span></button>
         <div class="card-store-btns">
           <a href="https://www.youtube.com/watch?v=Ndxj9DbeLCI" target="_blank" class="store-btn watch">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-            Watch Gameplay
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Gameplay
           </a>
-          <a href="https://cafebazaar.ir/app/com.PilehGames.Lotus" class="store-btn pc">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            Android Cafebazar
+          <a href="https://cafebazaar.ir/app/com.PilehGames.Lotus" target="_blank" class="store-btn google">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Cafebazaar
           </a>
         </div>
       </div>
@@ -979,48 +1431,49 @@
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">TRAIN</div>
+        <div class="card-badge">📱 106K+ Installs</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">Mobile · Solo Dev · Simulation / Builder</div>
+        <div class="card-platform">Mobile · Simulation Builder · Sole Engineer</div>
         <div class="card-title">Everyone's Train Town</div>
-        <p class="card-desc">Full-featured simulation game where players build and customize their own railway town. Built entirely as solo developer: building & customization systems, UI, core gameplay loops, and SDK integrations including Gmail login and Zepeto character sync.</p>
+        <p class="card-desc">Full simulation game shipped to iOS & Android with 106K+ installs. I was the only engineer — built every system from scratch: economy, locomotion, UI, SDK integrations, and a live-update pipeline.</p>
         <div class="card-tags">
-          <span class="card-tag">Solo Project</span>
-          <span class="card-tag">Simulation</span>
-          <span class="card-tag">SDK Integration</span>
+          <span class="card-tag">Solo Dev</span>
+          <span class="card-tag">Addressables</span>
           <span class="card-tag">Zepeto</span>
+          <span class="card-tag">Unity</span>
         </div>
+        <button class="btn-case-study" data-project="page-train-town">View Case Study <span class="cs-arrow">→</span></button>
         <div class="card-store-btns">
-          <a href="https://play.google.com/store/apps/details?id=com.jr.mintrain" class="store-btn google">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
-            Google Play
+          <a href="https://play.google.com/store/apps/details?id=com.jr.mintrain" target="_blank" class="store-btn google">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Google Play
           </a>
-          <a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3/id6739932061" class="store-btn apple">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
+          <a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3/id6739932061" target="_blank" class="store-btn apple">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>App Store
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Dobiel MOBA -->
+    <!-- Dobiel -->
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">DOBIEL</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">PC · Server-Authoritative · MOBA</div>
+        <div class="card-platform">PC · MOBA · Solo Developer · 3 Years</div>
         <div class="card-title">Dobiel — MOBA Prototype</div>
-        <p class="card-desc">Multiplayer MOBA prototype using full server-authoritative architecture. All gameplay logic handled server-side. Built the input-based networking model, creep/tower/combat sync logic, and core MOBA gameplay systems.</p>
+        <p class="card-desc">Solo-built multiplayer MOBA prototype using a fully custom TCP/UDP networking layer with server-authoritative architecture — the same input-based model used in Valve's Source Engine.</p>
         <div class="card-tags">
+          <span class="card-tag">Custom TCP/UDP</span>
           <span class="card-tag">Server-Auth</span>
           <span class="card-tag">MOBA</span>
-          <span class="card-tag">Custom Networking</span>
+          <span class="card-tag">Unity</span>
         </div>
+        <button class="btn-case-study" data-project="page-dobeil">View Case Study <span class="cs-arrow">→</span></button>
         <div class="card-store-btns">
           <a href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank" class="store-btn watch">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-            Watch Gameplay
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Demo
           </a>
         </div>
       </div>
@@ -1030,67 +1483,53 @@
     <div class="project-card">
       <div class="card-img-wrap">
         <div class="card-img-placeholder">DINO</div>
+        <div class="card-badge">⚡ 3 Months · Published</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">Mobile · Casual · Solo Dev</div>
+        <div class="card-platform">Mobile · Casual · Indie · Co-Dev</div>
         <div class="card-title">DinoWay</div>
-        <p class="card-desc">Unique casual game where players follow dynamically generated footsteps to progress. Designed the core mechanic from scratch — an indirect player guidance system using a procedural path and footstep system. Built all player control and feedback systems.</p>
+        <p class="card-desc">Casual mobile game built and published with two friends in 90 days — proof that sleep is optional when you're having fun. Features a unique procedural footstep guidance system.</p>
         <div class="card-tags">
-          <span class="card-tag">Solo Project</span>
-          <span class="card-tag">Casual</span>
+          <span class="card-tag">Indie</span>
           <span class="card-tag">Procedural</span>
+          <span class="card-tag">Mobile</span>
           <span class="card-tag">Unity</span>
         </div>
+        <button class="btn-case-study" data-project="page-dinoway">View Case Study <span class="cs-arrow">→</span></button>
         <div class="card-store-btns">
-          <a href="https://cafebazaar.ir/app/studio.enchanters.dinoway" class="store-btn google">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
-            Android cafebazaar
+          <a href="https://cafebazaar.ir/app/studio.enchanters.dinoway" target="_blank" class="store-btn google">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Cafebazaar
+          </a>
+          <a href="https://www.youtube.com/shorts/VS3cV1VbruY" target="_blank" class="store-btn watch">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Gameplay
           </a>
         </div>
       </div>
     </div>
 
-    <!-- WordRace -->
+    <!-- Studio Work -->
     <div class="project-card">
       <div class="card-img-wrap">
-        <div class="card-img-placeholder">WORD</div>
+        <div class="card-img-placeholder">STUDIO</div>
+        <div class="card-badge">📦 2 Published Titles</div>
       </div>
       <div class="card-body">
-        <div class="card-platform">Mobile · Published · Badbadak Haft Aseman</div>
-        <div class="card-title">WordRace</div>
-        <p class="card-desc">Published mobile multiplayer word game developed at Badbadak Haft Aseman (100+ team). Contributed multiplayer features, core gameplay systems, and ensured a smooth launch to market.</p>
+        <div class="card-platform">Mobile · Studio Work · Badbadak</div>
+        <div class="card-title">WordRace & Backgammon</div>
+        <p class="card-desc">Two commercially published multiplayer mobile games at Badbadak Haft Aseman (100+ employees). Contributed UI systems, leaderboard architecture, and gameplay programming on both titles using Cocos Creator.</p>
         <div class="card-tags">
+          <span class="card-tag">Cocos Creator</span>
           <span class="card-tag">Multiplayer</span>
-          <span class="card-tag">Word Game</span>
+          <span class="card-tag">UI Systems</span>
           <span class="card-tag">Published</span>
         </div>
+        <button class="btn-case-study" data-project="page-studio-work">View Case Study <span class="cs-arrow">→</span></button>
         <div class="card-store-btns">
-          <a href="https://wordrace.wini.games/" class="store-btn google">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
-            WebGL Page
+          <a href="https://wordrace.wini.games/" target="_blank" class="store-btn web">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>WordRace
           </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Backgammon -->
-    <div class="project-card">
-      <div class="card-img-wrap">
-        <div class="card-img-placeholder">BACKGAMMON</div>
-      </div>
-      <div class="card-body">
-        <div class="card-platform">Mobile · Published · Badbadak Haft Aseman</div>
-        <div class="card-title">Backgammon</div>
-        <p class="card-desc">Published mobile backgammon with online multiplayer, developed at a studio with 100+ employees. Contributed to core game logic, multiplayer systems, and successful market launch.</p>
-        <div class="card-tags">
-          <span class="card-tag">Multiplayer</span>
-          <span class="card-tag">Board Game</span>
-          <span class="card-tag">Published</span>
-        </div>
-        <div class="card-store-btns">
-          <a href="http://backgammon.wini.games/" class="store-btn google">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>
-            WebGL Page
+          <a href="http://backgammon.wini.games/" target="_blank" class="store-btn web">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>Backgammon
           </a>
         </div>
       </div>
@@ -1104,53 +1543,35 @@
   <div class="section-label reveal">Social Proof</div>
   <h2 class="section-title reveal">What<br>Teammates<br>Say</h2>
   <div class="testimonials-grid reveal">
-
     <a class="testimonial-card" href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" rel="noopener">
-      <p class="testimonial-quote">
-        "A person with high perseverance, speed in learning, interest in progress, and challenges."
-      </p>
+      <p class="testimonial-quote">"A person with high perseverance, speed in learning, interest in progress, and challenges."</p>
       <div class="testimonial-author">
-        <img src="https://media.licdn.com/dms/image/v2/D4E03AQESEyyHslSoTw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1690314022330?e=1778112000&v=beta&t=iWrpMvkvQcKGPNW_Cj8L6Gu0n4lZjzX3qSn5knksK7I">
+        <div class="testimonial-avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQESEyyHslSoTw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1690314022330?e=1778112000&v=beta&t=iWrpMvkvQcKGPNW_Cj8L6Gu0n4lZjzX3qSn5knksK7I" alt=""></div>
         <div>
-          <div class="testimonial-name">Ex-Colleague</div>
-          <div class="testimonial-role">Ebrahim Karimi · Badbadak Haft Aseman</div>
-          <div class="testimonial-li">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            View on LinkedIn
-          </div>
+          <div class="testimonial-name">Ebrahim Karimi</div>
+          <div class="testimonial-role">Badbadak Haft Aseman</div>
+          <div class="testimonial-li"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>View on LinkedIn</div>
         </div>
       </div>
     </a>
-
     <a class="testimonial-card" href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" rel="noopener">
-      <p class="testimonial-quote">
-        "It was a really pleasure for me to work with AliReza. We worked perfectly together. He is a hard-working and motivated programmer. He has good experience in game development. He was one of the most talented and successful programmers on the Wini team."
-      </p>
+      <p class="testimonial-quote">"It was a really pleasure for me to work with AliReza. We worked perfectly together. He is a hard-working and motivated programmer. He has good experience in game development. He was one of the most talented and successful programmers on the Wini team."</p>
       <div class="testimonial-author">
-        <img src="https://media.licdn.com/dms/image/v2/C4E03AQE7cIRFW1TTlQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1623183845438?e=1778112000&v=beta&t=G91qvZg_643mkm_MqOHdk8oI2yU5xsfipn9wxxUS5tE">
+        <div class="testimonial-avatar"><img src="https://media.licdn.com/dms/image/v2/C4E03AQE7cIRFW1TTlQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1623183845438?e=1778112000&v=beta&t=G91qvZg_643mkm_MqOHdk8oI2yU5xsfipn9wxxUS5tE" alt=""></div>
         <div>
-          <div class="testimonial-name">Ex-Colleague</div>
-          <div class="testimonial-role">Sajad Imani · Badbadak Haft Aseman(Wini Team)</div>
-          <div class="testimonial-li">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            View on LinkedIn
-          </div>
+          <div class="testimonial-name">Sajad Imani</div>
+          <div class="testimonial-role">Badbadak Haft Aseman · Wini Team</div>
+          <div class="testimonial-li"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>View on LinkedIn</div>
         </div>
       </div>
     </a>
-
   </div>
-  <!--<p class="reveal" style="margin-top:32px; font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--muted);">
-    ↑ PLACEHOLDER TEXT — replace with your actual LinkedIn recommendations · <a href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" style="color:var(--gold); text-decoration:none;">linkedin.com/in/alireza-khishvand</a>
-  </p>-->
 </section>
 
 <!-- ── YOUTUBE ── -->
 <section class="youtube" id="youtube">
   <div class="section-label reveal">Content</div>
   <h2 class="section-title reveal">Zero To<br>Game</h2>
-
-  <!-- Featured Embed — click-to-load to avoid 503 errors -->
   <div class="yt-featured reveal">
     <div class="yt-featured-label">Featured Video</div>
     <div class="yt-facade" id="ytFacade" onclick="loadYT(this)" data-videoid="HMJwhbS_e68">
@@ -1163,58 +1584,23 @@
     </div>
     <div class="yt-embed-caption">Dobiel | MOBA Gameplay Demo — Server-Authoritative Multiplayer Prototype</div>
   </div>
-
   <div class="yt-intro reveal">
-    <p>
-      I document my systems, gameplay experiments, and development process on <strong>YouTube</strong>.
-      The channel covers real multiplayer implementations, architecture deep-dives, and project showcases — the technical side of building games, not just the glamour.
-    </p>
+    <p>I document my systems, gameplay experiments, and development process on <strong>YouTube</strong>. The channel covers real multiplayer implementations, architecture deep-dives, and project showcases — the actual technical work, not the highlights reel.</p>
   </div>
-
   <div class="yt-grid reveal">
     <a class="yt-card" href="https://www.youtube.com/watch?v=F9coDnuH7TU&t=6s" target="_blank">
-      <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" alt="Train Town Gameplay">
-        <div class="yt-play-btn">
-          <div class="yt-play-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="yt-body">
-        <div class="yt-title">Everyone's Train Town Gameplay Showcase</div>
-      </div>
+      <div class="yt-thumb"><img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" alt="Train Town Gameplay"><div class="yt-play-btn"><div class="yt-play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg></div></div></div>
+      <div class="yt-body"><div class="yt-title">Everyone's Train Town Gameplay Showcase</div></div>
     </a>
-
     <a class="yt-card" href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank">
-      <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" alt="Dobiel MOBA Demo">
-        <div class="yt-play-btn">
-          <div class="yt-play-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="yt-body">
-        <div class="yt-title">Dobiel | MOBA Gameplay Demo — Server-Authoritative Prototype</div>
-      </div>
+      <div class="yt-thumb"><img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" alt="Dobiel MOBA Demo"><div class="yt-play-btn"><div class="yt-play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg></div></div></div>
+      <div class="yt-body"><div class="yt-title">Dobiel | MOBA Gameplay Demo — Server-Authoritative Prototype</div></div>
     </a>
-
     <a class="yt-card" href="https://www.youtube.com/shorts/VS3cV1VbruY" target="_blank">
-      <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" alt="Dino Memory Adventure">
-        <div class="yt-play-btn">
-          <div class="yt-play-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="yt-body">
-        <div class="yt-title">Dino Memory Adventure 🦖 | Puzzle Game Gameplay</div>
-      </div>
+      <div class="yt-thumb"><img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" alt="DinoWay Gameplay"><div class="yt-play-btn"><div class="yt-play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#050608"><polygon points="5,3 19,12 5,21"/></svg></div></div></div>
+      <div class="yt-body"><div class="yt-title">DinoWay 🦖 | Casual Puzzle Mobile Game</div></div>
     </a>
   </div>
-
   <a href="https://www.youtube.com/@ZeroToGameByAliReza" target="_blank" class="yt-channel-link reveal">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
     Watch on YouTube — ZeroToGame by AliReza
@@ -1226,34 +1612,28 @@
   <div class="section-label reveal">Experience</div>
   <h2 class="section-title reveal">Battle<br>History</h2>
   <div class="timeline reveal">
-
-    <!-- Alif -->
     <div class="timeline-item">
       <div class="timeline-header">
         <div class="studio-badge">ALF</div>
         <div class="timeline-meta">
-          <div class="timeline-date">Sep 2024 – Current</div>
+          <div class="timeline-date">Sep 2024 – Present</div>
           <div class="timeline-company">Alif Game Studio</div>
-          <div class="timeline-role">Senior Unity Developer · 🦌 Golden Deer Award</div>
+          <div class="timeline-role">Senior Unity Developer · Sole Engineer</div>
         </div>
       </div>
-      <p class="timeline-desc">Built core gameplay and multiplayer systems for a shipped title that earned the Golden Deer Award at Fajr International Game Festival. Focused on real-time online gameplay, architecture, and player-facing features.</p>
+      <p class="timeline-desc">Sole engineer on Everyone's Train Town — shipped to iOS & Android with 106K+ installs. Designed and built all gameplay systems from scratch: economy, locomotion, UI, Gmail OAuth, Zepeto SDK, and a live content update pipeline using Addressables.</p>
     </div>
-
-    <!-- ANU -->
     <div class="timeline-item">
       <div class="timeline-header">
         <div class="studio-badge">ANU</div>
         <div class="timeline-meta">
           <div class="timeline-date">Sep 2023 – Sep 2024</div>
           <div class="timeline-company">ANU Game Studio</div>
-          <div class="timeline-role">Unity Developer · 🦌 2× Golden Deer Award</div>
+          <div class="timeline-role">Unity Developer · 🦌 3× Festival Awards</div>
         </div>
       </div>
-      <p class="timeline-desc">Contributed to an award-winning title (Pookeh). Led gameplay programming and system design, delivered performance-optimized builds, and built foundational systems that helped the project win at Fajr Game Festival.</p>
+      <p class="timeline-desc">Lead technical developer on Pookeh — a Hero Shooter that surpassed 100K players and won Best Action, Best Technical Achievement, and an Honorary Art Diploma at the 9th Fajr International Game Festival. Owned the full competitive multiplayer stack.</p>
     </div>
-
-    <!-- Badbadak -->
     <div class="timeline-item">
       <div class="timeline-header">
         <div class="studio-badge">BBK</div>
@@ -1263,10 +1643,8 @@
           <div class="timeline-role">Unity Gameplay & Systems Developer</div>
         </div>
       </div>
-      <p class="timeline-desc">Shipped multiplayer features and core gameplay systems for two published titles (WordRace & Backgammon) at a studio with 100+ employees. Responsible for network architecture, real-time synchronization, and gameplay programming.</p>
+      <p class="timeline-desc">Shipped WordRace and Backgammon — two published multiplayer mobile titles built in Cocos Creator at a studio of 100+ employees. Contributed UI systems, leaderboard architecture, gameplay programming, and real-time multiplayer features.</p>
     </div>
-
-    <!-- Dobiel -->
     <div class="timeline-item">
       <div class="timeline-header">
         <div class="studio-badge">DBL</div>
@@ -1276,9 +1654,8 @@
           <div class="timeline-role">Solo Developer — MOBA Prototype</div>
         </div>
       </div>
-      <p class="timeline-desc">Spearheaded full development of a MOBA prototype in Unity as solo developer. Built a complete server-authoritative architecture with input-based networking, creep/tower/combat sync, and all core MOBA systems.</p>
+      <p class="timeline-desc">Built a full MOBA prototype as sole developer over 3 years. Implemented custom TCP/UDP networking from scratch, server-authoritative architecture with client-side prediction — the same input model used in Valve's Source engine.</p>
     </div>
-
   </div>
 </section>
 
@@ -1288,14 +1665,12 @@
   <div class="corner-br"></div>
   <div class="section-label reveal" style="justify-content:center;">Available for Work</div>
   <h2 class="contact-title reveal">Let's<br>Build<br>Together</h2>
-  <p class="contact-sub reveal">
-    Open to remote Unity Developer roles, freelance projects, and relocation opportunities. Let's ship something great.
-  </p>
+  <p class="contact-sub reveal">Open to remote Unity Developer roles, freelance projects, and relocation opportunities. Let's ship something great.</p>
   <div class="contact-links reveal">
     <a href="mailto:alireza97khish@gmail.com" class="btn-primary">Email Me</a>
     <a href="https://www.linkedin.com/in/alireza-khishvand/" target="_blank" class="btn-outline">LinkedIn</a>
     <a href="https://github.com/alireza97kh" target="_blank" class="btn-outline">GitHub</a>
-    <a href="https://www.youtube.com/@ZeroToGame" target="_blank" class="btn-outline">YouTube</a>
+    <a href="https://www.youtube.com/@ZeroToGameByAliReza" target="_blank" class="btn-outline">YouTube</a>
   </div>
 </section>
 
@@ -1303,18 +1678,826 @@
 <footer>
   <div class="footer-copy">© 2026 ALIREZA KHISHVAND · UNITY MULTIPLAYER DEVELOPER</div>
   <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#tech">Stack</a>
-    <a href="#projects">Projects</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#youtube">YouTube</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" class="main-nav-link">About</a>
+    <a href="#tech" class="main-nav-link">Stack</a>
+    <a href="#projects" class="main-nav-link">Projects</a>
+    <a href="#youtube" class="main-nav-link">YouTube</a>
+    <a href="#experience" class="main-nav-link">Experience</a>
+    <a href="#contact" class="main-nav-link">Contact</a>
   </div>
 </footer>
 
+</div><!-- end #page-main -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT PAGE: POOKEH
+═══════════════════════════════════════════════════════════════ -->
+<div id="page-pookeh" class="project-page">
+
+  <div class="proj-back">
+    <button class="proj-back-btn" data-goto-main="#projects">← Back to Projects</button>
+    <div class="proj-breadcrumb">Projects / <span>Pookeh</span></div>
+  </div>
+
+  <div class="proj-hero" style="background: var(--dark);">
+    <div class="proj-hero-grid"></div>
+    <div class="proj-hero-glow"></div>
+    <div class="proj-hero-glow-red"></div>
+    <div class="proj-hero-watermark">POOKEH</div>
+    <div class="proj-hero-inner">
+      <div class="proj-hero-tag">ANU Game Studio · Sep 2023 – Sep 2024</div>
+      <div class="proj-award-badges">
+        <span class="proj-award-badge">🦌 Best Action Game</span>
+        <span class="proj-award-badge">🏆 Best Technical Achievement</span>
+        <span class="proj-award-badge">🎨 Honorary Art Diploma</span>
+        <span class="proj-award-badge">9th Fajr International Game Festival</span>
+      </div>
+      <h1 class="proj-hero-title">Pookeh —<br><span>Company Fighters</span></h1>
+      <p class="proj-hero-subtitle">Iran's most-awarded competitive multiplayer shooter. A team-based Hero Shooter set in a sci-fi future — I owned the entire technical stack, from server architecture to every bullet fired.</p>
+      <div class="proj-hero-links">
+        <a href="https://www.youtube.com/watch?v=Ndxj9DbeLCI" target="_blank" class="store-btn watch">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Gameplay
+        </a>
+        <a href="https://cafebazaar.ir/app/com.PilehGames.Lotus" target="_blank" class="store-btn google">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Cafebazaar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info-bar">
+    <div class="proj-info-item"><div class="proj-info-label">Genre</div><div class="proj-info-value">Hero Shooter (Online PvP)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Engine</div><div class="proj-info-value">Unity</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Dev Time</div><div class="proj-info-value">~1 Year</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">My Role</div><div class="proj-info-value">Lead Gameplay Developer</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Platform</div><div class="proj-info-value">PC + Android</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Network</div><div class="proj-info-value">Photon PUN2 / Fusion</div></div>
+  </div>
+
+  <div class="proj-content">
+
+    <!-- Video -->
+    <div class="proj-section">
+      <div class="proj-section-tag">Gameplay</div>
+      <h2 class="proj-section-title">Watch It In Action</h2>
+      <div class="proj-video-facade" onclick="loadProjYT(this)" data-videoid="Ndxj9DbeLCI">
+        <img src="https://img.youtube.com/vi/Ndxj9DbeLCI/maxresdefault.jpg" alt="Pookeh Gameplay">
+        <div class="proj-video-facade-btn"><div class="proj-video-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#050608"><polygon points="6,3 20,12 6,21"/></svg></div></div>
+      </div>
+      <div class="proj-video-label">Pookeh — Competitive PvP Gameplay</div>
+    </div>
+
+    <!-- About -->
+    <div class="proj-section">
+      <div class="proj-section-tag">About the Game</div>
+      <h2 class="proj-section-title">What Is Pookeh?</h2>
+      <p class="proj-section-intro">
+        Pookeh (پوکه؛ مبارزان کمپانی) is a <strong>real-time online Hero Shooter</strong> set in a dystopian sci-fi future controlled by a powerful multinational corporation. Players choose heroes and compete in intense team battles — think Overwatch, built in Iran, for Iranian networks.
+      </p>
+      <p class="proj-section-intro">
+        The game launched to <strong>100,000+ registered players</strong> and won three awards at Iran's largest government-recognized game festival — the 9th Fajr International Game Festival (1402), which had 200+ submissions and returned after a 4-year hiatus.
+      </p>
+    </div>
+
+    <!-- What I Built -->
+    <div class="proj-section">
+      <div class="proj-section-tag">My Contributions</div>
+      <h2 class="proj-section-title">What I Built</h2>
+      <p class="proj-section-intro">I was the <strong>lead gameplay and multiplayer developer</strong>. While the team handled art and design, I owned the entire technical infrastructure — from the moment players connect to the moment the match ends.</p>
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <div class="contribution-num">01</div>
+          <div class="contribution-title">Full Multiplayer Stack</div>
+          <div class="contribution-desc">Built the complete online infrastructure using Photon PUN2 and Fusion: lobby system, matchmaking, real-time room management, and team assignment. Players go from menu to match in seconds.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">02</div>
+          <div class="contribution-title">Server-Side Hit Validation</div>
+          <div class="contribution-desc">All hit detection is processed server-side. No client can fake a kill or manipulate damage — critical for a competitive game where fairness is everything.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">03</div>
+          <div class="contribution-title">Lag Compensation System</div>
+          <div class="contribution-desc">Iranian networks are notoriously unreliable (150ms+ latency is common). I implemented a full lag compensation layer using Photon Fusion's tick-based rollback, making fights feel responsive and fair even on bad connections.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">04</div>
+          <div class="contribution-title">Tournament System</div>
+          <div class="contribution-desc">Designed and built end-to-end: bracket generation, match scheduling, result tracking, prize distribution, and a full UI — all synced with the multiplayer backend. Greenfielded from zero with no existing framework.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">05</div>
+          <div class="contribution-title">Core Combat Systems</div>
+          <div class="contribution-desc">Every piece of combat you see in the game: character controllers, weapon handling, reload mechanics, ability systems, hit detection, and all the feedback systems that make it feel good to play.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">06</div>
+          <div class="contribution-title">Spectator Mode</div>
+          <div class="contribution-desc">Built a full spectator implementation allowing eliminated players and observers to watch ongoing matches — a necessary feature for the competitive tournament scene.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">07</div>
+          <div class="contribution-title">Performance Optimization</div>
+          <div class="contribution-desc">Profiled the game using Unity's profiler, identified rendering and physics bottlenecks, and applied LOD, object pooling, and draw call batching — achieving a 20%+ FPS improvement across target hardware profiles.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problems Solved -->
+    <div class="proj-section">
+      <div class="proj-section-tag">Technical Challenges</div>
+      <h2 class="proj-section-title">Problems I Solved</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">Iranian networks have notoriously high latency. Building a fair competitive shooter for this audience meant network lag was the #1 gameplay issue.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Implemented lag compensation using <strong>Photon Fusion's tick-based system with server-side rollback and validation</strong>. Each client predicts locally while the server remains authoritative. Result: <strong>maximum 5% packet loss</strong> even on worst-case networks — a figure that's exceptional for the region's infrastructure.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">The tournament system was a greenfield feature — no schema, no bracket logic, no backend, no UI. Just a requirement: "players need to compete in tournaments."</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Designed the entire system from scratch: <strong>bracket generation algorithm, match scheduling tied to Photon room creation, server-synced result tracking, and prize distribution logic</strong>. The feature shipped on time and was directly tied to a measurable increase in daily active users and in-app purchase conversion.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">The target audience uses a wide range of mid-to-low-end Android hardware. The game felt inconsistent — some devices hit 60 FPS, others dropped below 30.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Ran deep profiling sessions, found the main bottlenecks in rendering (overdraw, dynamic shadows) and physics (unnecessary collision checks). Applied <strong>LOD groups, GPU instancing, object pooling for projectiles, and draw call batching</strong>. Average FPS improved by <strong>20%+</strong> across target devices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div class="proj-section">
+      <div class="proj-section-tag">Results</div>
+      <h2 class="proj-section-title">My Impact</h2>
+      <div class="impact-stats-row">
+        <div class="impact-stat"><div class="impact-num">100K+</div><div class="impact-label">Registered Players</div></div>
+        <div class="impact-stat"><div class="impact-num">3</div><div class="impact-label">Festival Awards</div></div>
+        <div class="impact-stat"><div class="impact-num">5%</div><div class="impact-label">Max Packet Loss</div></div>
+        <div class="impact-stat"><div class="impact-num">20%+</div><div class="impact-label">FPS Improvement</div></div>
+      </div>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Competitive multiplayer that worked on notoriously unreliable Iranian networks — something most developers on the platform struggle to achieve.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text"><strong>Tournament system</strong> directly increased daily active users and IAP conversion rates — a business metric tied to a technical feature I built from zero.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Won <strong>Best Action Game</strong> (Golden Deer), <strong>Best Technical Achievement</strong>, and <strong>Honorary Diploma for Best Artistic Achievement</strong> at the 9th Fajr International Game Festival — Iran's largest government-recognized game event with 200+ submissions.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">100K+ players built a real competitive scene around the game — something that only happens when the technical foundation is solid enough to support sustained, fair play.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proj-page-footer">
+    <div class="proj-page-footer-inner">
+      <button class="proj-back-btn" data-goto-main="#projects">← All Projects</button>
+      <button class="proj-next-btn" data-project="page-train-town">Next: Everyone's Train Town <span class="arrow">→</span></button>
+    </div>
+  </div>
+
+</div><!-- end page-pookeh -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT PAGE: EVERYONE'S TRAIN TOWN
+═══════════════════════════════════════════════════════════════ -->
+<div id="page-train-town" class="project-page">
+
+  <div class="proj-back">
+    <button class="proj-back-btn" data-goto-main="#projects">← Back to Projects</button>
+    <div class="proj-breadcrumb">Projects / <span>Everyone's Train Town</span></div>
+  </div>
+
+  <div class="proj-hero" style="background: var(--dark);">
+    <div class="proj-hero-grid"></div>
+    <div class="proj-hero-glow"></div>
+    <div class="proj-hero-watermark">TRAIN TOWN</div>
+    <div class="proj-hero-inner">
+      <div class="proj-hero-tag">Alif Game Studio · Sep 2024 – Present</div>
+      <div class="proj-award-badges">
+        <span class="proj-award-badge">📱 65K iOS Installs</span>
+        <span class="proj-award-badge">📱 40K Android Installs</span>
+        <span class="proj-award-badge">⚙️ 1 Engineer · 0 Build Cycles for Content</span>
+      </div>
+      <h1 class="proj-hero-title">Everyone's<br><span>Train Town</span></h1>
+      <p class="proj-hero-subtitle">106K+ installs. One engineer. I designed and built every system in this mobile simulation game from scratch — while the rest of the team focused on art and design.</p>
+      <div class="proj-hero-links">
+        <a href="https://www.youtube.com/watch?v=F9coDnuH7TU&t=6s" target="_blank" class="store-btn watch"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Gameplay</a>
+        <a href="https://play.google.com/store/apps/details?id=com.jr.mintrain" target="_blank" class="store-btn google"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Google Play</a>
+        <a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3/id6739932061" target="_blank" class="store-btn apple"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>App Store</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info-bar">
+    <div class="proj-info-item"><div class="proj-info-label">Genre</div><div class="proj-info-value">Mobile Simulation Builder</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Engine</div><div class="proj-info-value">Unity</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Dev Time</div><div class="proj-info-value">~8 Months (to ship)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">My Role</div><div class="proj-info-value">Sole Engineer</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Platform</div><div class="proj-info-value">iOS + Android</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Team</div><div class="proj-info-value">8 People (I was the only dev)</div></div>
+  </div>
+
+  <div class="proj-content">
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Gameplay</div>
+      <h2 class="proj-section-title">Watch It In Action</h2>
+      <div class="proj-video-facade" onclick="loadProjYT(this)" data-videoid="F9coDnuH7TU">
+        <img src="https://img.youtube.com/vi/F9coDnuH7TU/maxresdefault.jpg" alt="Train Town Gameplay">
+        <div class="proj-video-facade-btn"><div class="proj-video-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#050608"><polygon points="6,3 20,12 6,21"/></svg></div></div>
+      </div>
+      <div class="proj-video-label">Everyone's Train Town — Full Gameplay Showcase</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">About the Game</div>
+      <h2 class="proj-section-title">What Is Train Town?</h2>
+      <p class="proj-section-intro">Everyone's Train Town is a <strong>mobile simulation builder</strong> where players construct and manage their own railway town — placing buildings, customizing layouts, running trains on tracks, and growing their in-game economy.</p>
+      <p class="proj-section-intro">The game shipped to both iOS and Android as a cross-platform live title. The team of 8 included designers, artists, and QA — and <strong>I was the only engineer on the project</strong>. Every line of gameplay code is mine.</p>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">My Contributions</div>
+      <h2 class="proj-section-title">What I Built</h2>
+      <p class="proj-section-intro">I designed and built everything from scratch. The art team provided assets; I made them into a game.</p>
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <div class="contribution-num">01</div>
+          <div class="contribution-title">Building & Customization System</div>
+          <div class="contribution-desc">Full snap-to-grid placement system with rotation, collision detection, upgrade paths, and visual feedback. Players can build and rearrange their town freely — with instant undo/redo and persistent saves.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">02</div>
+          <div class="contribution-title">Train Locomotion System</div>
+          <div class="contribution-desc">Trains follow custom spline-based tracks with physics-influenced speed, acceleration curves, and station-stopping logic. Multiple trains run simultaneously without collision or desync.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">03</div>
+          <div class="contribution-title">In-Game Economy</div>
+          <div class="contribution-desc">Coin earning, spending, pricing balance, and progression rewards tuned for a mobile-first loop. Includes production buildings, passive income, and timed rewards — all designed to keep players engaged.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">04</div>
+          <div class="contribution-title">Addressables + ScriptableObject Pipeline</div>
+          <div class="contribution-desc">The most impactful architectural decision on the project: a content management system that let the art team add new train types (models, stats, pricing) via a shared spreadsheet — without requiring a new app build.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">05</div>
+          <div class="contribution-title">SDK Integrations</div>
+          <div class="contribution-desc">Gmail OAuth for cross-platform identity (players keep their progress across devices) and Zepeto SDK for character sync — enabling social avatar features tied to the game's community platform.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">06</div>
+          <div class="contribution-title">All UI Systems</div>
+          <div class="contribution-desc">Every screen, menu, HUD element, shop interface, and popup — built from scratch. Optimized for mobile touch input with consistent visual feedback and smooth transitions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Technical Challenges</div>
+      <h2 class="proj-section-title">Problems I Solved</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">The art team needed to add new train types frequently, but every content change required a full app build, QA cycle, and store submission — a 1–2 week delay per update.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Designed a live-update pipeline using <strong>Unity Addressables for remote asset loading</strong> and <strong>ScriptableObjects as data containers</strong> synced via a shared spreadsheet. The art team updates the sheet and publishes Addressables — new train types appear in the live game <strong>with zero app rebuild required</strong>. Eliminated week-long release cycles for content updates entirely.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">Being the sole engineer meant enormous scope: economy, locomotion, building systems, UI, SDKs — all simultaneously, with a real team and real users waiting.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Prioritized <strong>modular, decoupled architecture</strong> from day one. Each system (economy, building, locomotion) operates independently with clean interfaces — so adding a feature never breaks an existing one. This made it possible to iterate quickly without accumulating debt. <strong>Shipped on schedule</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Results</div>
+      <h2 class="proj-section-title">My Impact</h2>
+      <div class="impact-stats-row">
+        <div class="impact-stat"><div class="impact-num">65K</div><div class="impact-label">iOS Installs</div></div>
+        <div class="impact-stat"><div class="impact-num">40K</div><div class="impact-label">Android Installs</div></div>
+        <div class="impact-stat"><div class="impact-num">106K+</div><div class="impact-label">Total Installs</div></div>
+        <div class="impact-stat"><div class="impact-num">0</div><div class="impact-label">Build Cycles for Content</div></div>
+      </div>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">A team of 8 shipped a complete, polished mobile game — with <strong>one engineer</strong>. That's the whole story.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">The <strong>Addressables pipeline</strong> transformed how the team works: content that used to take 2 weeks to ship now takes hours. The art team gained full autonomy over content updates.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Both iOS and Android at launch — cross-platform from day one, using Gmail OAuth for seamless identity across devices with the Zepeto social layer.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proj-page-footer">
+    <div class="proj-page-footer-inner">
+      <button class="proj-back-btn" data-goto-main="#projects">← All Projects</button>
+      <button class="proj-next-btn" data-project="page-dobeil">Next: Dobeil MOBA <span class="arrow">→</span></button>
+    </div>
+  </div>
+
+</div><!-- end page-train-town -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT PAGE: DOBEIL MOBA
+═══════════════════════════════════════════════════════════════ -->
+<div id="page-dobeil" class="project-page">
+
+  <div class="proj-back">
+    <button class="proj-back-btn" data-goto-main="#projects">← Back to Projects</button>
+    <div class="proj-breadcrumb">Projects / <span>Dobeil — MOBA Prototype</span></div>
+  </div>
+
+  <div class="proj-hero" style="background: var(--dark);">
+    <div class="proj-hero-grid"></div>
+    <div class="proj-hero-glow"></div>
+    <div class="proj-hero-watermark">DOBEIL</div>
+    <div class="proj-hero-inner">
+      <div class="proj-hero-tag">DOBIEL Game Studio · Jul 2017 – Mar 2020</div>
+      <div class="proj-award-badges">
+        <span class="proj-award-badge">⚙️ Custom TCP/UDP Networking</span>
+        <span class="proj-award-badge">🖥️ Server-Authoritative Architecture</span>
+        <span class="proj-award-badge">👤 Solo Developer · 3 Years</span>
+      </div>
+      <h1 class="proj-hero-title">Dobeil —<br><span>MOBA Prototype</span></h1>
+      <p class="proj-hero-subtitle">A full multiplayer MOBA prototype built completely solo over 3 years. No networking framework — I wrote the custom TCP/UDP layer from scratch, using the same input-based model as Valve's Source Engine.</p>
+      <div class="proj-hero-links">
+        <a href="https://www.youtube.com/watch?v=HMJwhbS_e68" target="_blank" class="store-btn watch"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info-bar">
+    <div class="proj-info-item"><div class="proj-info-label">Genre</div><div class="proj-info-value">MOBA (Multiplayer)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Engine</div><div class="proj-info-value">Unity</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Dev Time</div><div class="proj-info-value">~3 Years</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">My Role</div><div class="proj-info-value">Solo Developer (Everything)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Platform</div><div class="proj-info-value">PC (Prototype)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Networking</div><div class="proj-info-value">Custom TCP/UDP Sockets</div></div>
+  </div>
+
+  <div class="proj-content">
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Demo</div>
+      <h2 class="proj-section-title">See The Prototype</h2>
+      <div class="proj-video-facade" onclick="loadProjYT(this)" data-videoid="HMJwhbS_e68">
+        <img src="https://img.youtube.com/vi/HMJwhbS_e68/maxresdefault.jpg" alt="Dobeil MOBA Demo">
+        <div class="proj-video-facade-btn"><div class="proj-video-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#050608"><polygon points="6,3 20,12 6,21"/></svg></div></div>
+      </div>
+      <div class="proj-video-label">Dobeil | MOBA Gameplay Demo — Server-Authoritative Multiplayer Prototype</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">About the Project</div>
+      <h2 class="proj-section-title">What Is Dobeil?</h2>
+      <p class="proj-section-intro">Dobeil is a <strong>fully functional MOBA prototype</strong> — heroes, lanes, creeps, towers, team objectives — built entirely solo over three years. No team, no networking framework, no shortcuts.</p>
+      <p class="proj-section-intro">This project exists because I wanted to understand <strong>how competitive multiplayer games really work at the infrastructure level</strong>. Every system was built from first principles: the networking layer, the server authority model, the game simulation, all of it. The result is a near-complete playable demo that demonstrates the same architecture patterns used by professional game studios.</p>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">My Contributions</div>
+      <h2 class="proj-section-title">What I Built</h2>
+      <p class="proj-section-intro">Everything. No co-developers, no networking library, no game framework beyond Unity and C#.</p>
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <div class="contribution-num">01</div>
+          <div class="contribution-title">Custom TCP/UDP Networking Layer</div>
+          <div class="contribution-desc">Built from raw C# sockets: packet serialization, reliable and unreliable channels, connection management, and reconnection logic. No third-party networking library — written entirely from scratch.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">02</div>
+          <div class="contribution-title">Server-Authoritative Architecture</div>
+          <div class="contribution-desc">All gameplay logic — movement, combat, ability resolution, creep behavior — is computed on the server. Clients are intentionally "dumb": they send inputs and receive world state. Zero client-side cheat vectors.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">03</div>
+          <div class="contribution-title">Input-Based Networking Model</div>
+          <div class="contribution-desc">Clients transmit discrete inputs (move, attack, ability) rather than positions. The server simulates the game tick by tick. This is the exact same networking model used in Valve's Source Engine and most competitive PC games.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">04</div>
+          <div class="contribution-title">Client-Side Prediction & Reconciliation</div>
+          <div class="contribution-desc">Clients predict their own hero's movement locally (so controls feel instant), then reconcile with server corrections when they arrive. Latency becomes invisible for the most common action: moving.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">05</div>
+          <div class="contribution-title">Creep AI System</div>
+          <div class="contribution-desc">MOBA-style lane creeps with spawn logic, pathfinding along pre-defined lanes, aggro range detection, combat state machine, and death/respawn sequences — all simulated server-side.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">06</div>
+          <div class="contribution-title">Tower Combat & Hero Abilities</div>
+          <div class="contribution-desc">Tower targeting, range detection, attack cooldowns, and destruction sequences. Hero ability systems with cooldowns, hitboxes, and projectile logic — all validated server-side for fairness and cheat prevention.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Technical Challenges</div>
+      <h2 class="proj-section-title">Problems I Solved</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">MOBA games require many entities (heroes, creeps, towers, projectiles) to be perfectly synchronized across all clients. Any desync makes the game unplayable.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Full <strong>server-authoritative state sync</strong>: every game tick, the server computes the authoritative world state and broadcasts <strong>delta updates</strong> to each client. Clients never calculate outcomes — only the server does. State is fully deterministic; if two clients receive the same inputs, they produce identical results.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">Raw TCP/UDP sockets require manually handling packet fragmentation, out-of-order delivery, dropped connections, and message reliability — problems that networking libraries normally solve for you.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Built a <strong>lightweight reliability layer on top of UDP</strong>: gameplay-critical messages (ability use, death events) get acknowledged and retransmitted if dropped. Position updates use <strong>unreliable UDP</strong> — stale positions are harmless since the next update arrives quickly. This hybrid approach matches what Valve and Riot use in production.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Results</div>
+      <h2 class="proj-section-title">My Impact</h2>
+      <div class="impact-stats-row">
+        <div class="impact-stat"><div class="impact-num">3</div><div class="impact-label">Years Solo Dev</div></div>
+        <div class="impact-stat"><div class="impact-num">0</div><div class="impact-label">Third-Party Networking Libs</div></div>
+        <div class="impact-stat"><div class="impact-num">∞</div><div class="impact-label">Lessons Learned</div></div>
+      </div>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">A near-complete, <strong>playable multiplayer MOBA demo</strong> — heroes, lanes, creeps, towers, ability systems — all networked and synchronized, built by one person.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">The networking architecture directly informed everything I built afterward — Pookeh's lag compensation, the Train Town's data pipeline, all of it. <strong>Dobeil is where the foundations were laid.</strong></div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Proves ability to architect and implement <strong>complex real-time systems from first principles</strong> — not just use frameworks, but understand and build the underlying mechanisms.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proj-page-footer">
+    <div class="proj-page-footer-inner">
+      <button class="proj-back-btn" data-goto-main="#projects">← All Projects</button>
+      <button class="proj-next-btn" data-project="page-dinoway">Next: DinoWay <span class="arrow">→</span></button>
+    </div>
+  </div>
+
+</div><!-- end page-dobeil -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT PAGE: DINOWAY
+═══════════════════════════════════════════════════════════════ -->
+<div id="page-dinoway" class="project-page">
+
+  <div class="proj-back">
+    <button class="proj-back-btn" data-goto-main="#projects">← Back to Projects</button>
+    <div class="proj-breadcrumb">Projects / <span>DinoWay</span></div>
+  </div>
+
+  <div class="proj-hero" style="background: var(--dark);">
+    <div class="proj-hero-grid"></div>
+    <div class="proj-hero-glow"></div>
+    <div class="proj-hero-watermark">DINOWAY</div>
+    <div class="proj-hero-inner">
+      <div class="proj-hero-tag">Indie · Sep 2024 – Nov 2024</div>
+      <div class="proj-award-badges">
+        <span class="proj-award-badge">⚡ 90-Day Build</span>
+        <span class="proj-award-badge">👥 3-Person Team</span>
+        <span class="proj-award-badge">✅ Published on Cafebazaar</span>
+      </div>
+      <h1 class="proj-hero-title">Dino<span>Way</span></h1>
+      <p class="proj-hero-subtitle">Built and published a complete mobile game with two friends in 3 months flat — while also working a full-time job. Proof that sleep is optional when you're having fun.</p>
+      <div class="proj-hero-links">
+        <a href="https://www.youtube.com/shorts/VS3cV1VbruY" target="_blank" class="store-btn watch"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>Watch Gameplay</a>
+        <a href="https://cafebazaar.ir/app/studio.enchanters.dinoway" target="_blank" class="store-btn google"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.48.27 1.06.27 1.56 0l10.5-6.06-2.34-2.34-9.72 8.4zm-1.68-1.44V1.68C1.5.96 1.86.36 2.4.06L14.34 12 2.4 23.94c-.54-.3-.9-.9-.9-1.62zM21.6 10.62l-2.52-1.44-2.58 2.82 2.58 2.82 2.58-1.5c.72-.42 1.2-1.2 1.2-2.1 0-.9-.48-1.68-1.26-2.1v.5zM4.74.24L16.68 12l-2.34 2.34L4.74.24z"/></svg>Cafebazaar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info-bar">
+    <div class="proj-info-item"><div class="proj-info-label">Genre</div><div class="proj-info-value">Casual Mobile</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Engine</div><div class="proj-info-value">Unity</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Dev Time</div><div class="proj-info-value">3 Months</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">My Role</div><div class="proj-info-value">Co-Developer (of 3)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Platform</div><div class="proj-info-value">Android</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Status</div><div class="proj-info-value">Published</div></div>
+  </div>
+
+  <div class="proj-content">
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Gameplay</div>
+      <h2 class="proj-section-title">Watch It In Action</h2>
+      <div class="proj-video-facade" onclick="loadProjYTShorts(this)" data-videoid="VS3cV1VbruY">
+        <img src="https://img.youtube.com/vi/VS3cV1VbruY/maxresdefault.jpg" alt="DinoWay Gameplay">
+        <div class="proj-video-facade-btn"><div class="proj-video-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#050608"><polygon points="6,3 20,12 6,21"/></svg></div></div>
+      </div>
+      <div class="proj-video-label">DinoWay — Casual Mobile Gameplay</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">About the Game</div>
+      <h2 class="proj-section-title">What Is DinoWay?</h2>
+      <p class="proj-section-intro">DinoWay is a <strong>casual mobile puzzle game</strong> with a unique twist: instead of traditional waypoint markers or minimaps, players navigate by following <strong>dynamically generated footsteps</strong> left by the character. The footsteps are your guide — follow them to progress.</p>
+      <p class="proj-section-intro">The game was a side project born from a simple question: <em>"What if the navigation system was part of the game world instead of layered on top of it?"</em> Three friends, three months, one published app.</p>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">My Contributions</div>
+      <h2 class="proj-section-title">What I Built</h2>
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <div class="contribution-num">01</div>
+          <div class="contribution-title">Core Mechanic Design</div>
+          <div class="contribution-desc">The procedural footstep guidance system — the idea, the design, and the implementation. Players follow footsteps instead of arrows or minimaps, keeping navigation inside the game world and feeling natural.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">02</div>
+          <div class="contribution-title">Procedural Footstep System</div>
+          <div class="contribution-desc">A real-time path generator that creates footstep sequences ahead of the player, adapting to the current level layout. Footsteps spawn, animate in, and fade out as the player moves through the environment.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">03</div>
+          <div class="contribution-title">Player Controls</div>
+          <div class="contribution-desc">Mobile touch controls tuned for one-handed play. Clear input response with satisfying physics — the controls needed to feel good since gameplay is simple, making polish the differentiator.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">04</div>
+          <div class="contribution-title">Feedback Systems</div>
+          <div class="contribution-desc">Particle effects, sound trigger integration, and animation hooks for the footstep reveal, player actions, and puzzle completion. The feel of the game — not just the function.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Technical Challenges</div>
+      <h2 class="proj-section-title">Problems I Solved</h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">Casual games lose players in the first 30 seconds when navigation is confusing. Traditional waypoint arrows feel clinical and break immersion in a character-driven puzzle game.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Designed the <strong>procedural footstep system as a diegetic navigation tool</strong> — players follow their character's own footprints. It feels intuitive because it mirrors real-world logic. No UI overlays, no arrows, no minimap. The game world is the interface. This also doubles as a puzzle mechanic: sometimes the footstep path isn't the obvious route.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div>
+            <div class="problem-challenge-label">The Problem</div>
+            <div class="problem-challenge">3 months is not a lot of time to design, build, test, and publish a game — especially as a side project alongside a full-time job.</div>
+          </div>
+          <div>
+            <div class="problem-solution-label">The Solution</div>
+            <p class="problem-solution">Kept scope ruthlessly controlled: <strong>one core mechanic, polished well</strong>, rather than many mechanics done half-heartedly. Built modular systems so levels could be designed by the team without requiring new code. Published on schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Results</div>
+      <h2 class="proj-section-title">My Impact</h2>
+      <div class="impact-stats-row">
+        <div class="impact-stat"><div class="impact-num">90</div><div class="impact-label">Days to Ship</div></div>
+        <div class="impact-stat"><div class="impact-num">3</div><div class="impact-label">Person Team</div></div>
+        <div class="impact-stat"><div class="impact-num">1</div><div class="impact-label">Core Mechanic, Done Right</div></div>
+      </div>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">A <strong>published, playable game</strong> on Cafebazaar — built in 90 days as a side project. Demonstrates the ability to ship under extreme time constraints.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">The <strong>procedural footstep guidance system</strong> is an original mechanic — not a clone of an existing pattern. Designed from scratch to solve a real UX problem in mobile games.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Built in parallel with full-time work at Alif Game Studio on Everyone's Train Town. Yes, both September–November 2024. Sleep is optional when you're having fun.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proj-page-footer">
+    <div class="proj-page-footer-inner">
+      <button class="proj-back-btn" data-goto-main="#projects">← All Projects</button>
+      <button class="proj-next-btn" data-project="page-studio-work">Next: Studio Work <span class="arrow">→</span></button>
+    </div>
+  </div>
+
+</div><!-- end page-dinoway -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT PAGE: STUDIO WORK (WordRace + Backgammon)
+═══════════════════════════════════════════════════════════════ -->
+<div id="page-studio-work" class="project-page">
+
+  <div class="proj-back">
+    <button class="proj-back-btn" data-goto-main="#projects">← Back to Projects</button>
+    <div class="proj-breadcrumb">Projects / <span>Studio Work — Badbadak</span></div>
+  </div>
+
+  <div class="proj-hero" style="background: var(--dark);">
+    <div class="proj-hero-grid"></div>
+    <div class="proj-hero-glow"></div>
+    <div class="proj-hero-watermark">STUDIO</div>
+    <div class="proj-hero-inner">
+      <div class="proj-hero-tag">Badbadak Haft Aseman · Mar 2020 – Jul 2022</div>
+      <div class="proj-award-badges">
+        <span class="proj-award-badge">📦 2 Published Mobile Titles</span>
+        <span class="proj-award-badge">👥 100+ Person Studio</span>
+        <span class="proj-award-badge">🎮 Cocos Creator</span>
+      </div>
+      <h1 class="proj-hero-title">WordRace &amp;<br><span>Backgammon</span></h1>
+      <p class="proj-hero-subtitle">Two commercially published multiplayer mobile games built at a 100+ person studio. My focus: UI systems, leaderboard architecture, and gameplay programming — across both titles simultaneously.</p>
+      <div class="proj-hero-links">
+        <a href="https://wordrace.wini.games/" target="_blank" class="store-btn web"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>WordRace WebGL</a>
+        <a href="http://backgammon.wini.games/" target="_blank" class="store-btn web"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>Backgammon WebGL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-info-bar">
+    <div class="proj-info-item"><div class="proj-info-label">Titles</div><div class="proj-info-value">WordRace + Backgammon</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Engine</div><div class="proj-info-value">Cocos Creator</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Dev Time</div><div class="proj-info-value">~2 Years</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">My Role</div><div class="proj-info-value">UI Dev + Gameplay Dev</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Platform</div><div class="proj-info-value">Mobile (Published)</div></div>
+    <div class="proj-info-item"><div class="proj-info-label">Studio Size</div><div class="proj-info-value">100+ Employees</div></div>
+  </div>
+
+  <div class="proj-content">
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Context</div>
+      <h2 class="proj-section-title">The Studio Work</h2>
+      <p class="proj-section-intro">Badbadak Haft Aseman was a large mobile game studio with 100+ employees across engineering, design, localization, QA, and product. Working here meant learning how to operate inside a professional pipeline — proper task breakdowns, sprint cadences, code reviews, and shipping on schedule with a real team.</p>
+      <p class="proj-section-intro">Both <strong>WordRace</strong> (a real-time multiplayer word game) and <strong>Backgammon</strong> (online multiplayer board game) were shipped commercially on mobile during my time at the studio. Both were built using <strong>Cocos Creator</strong> — a different engine from Unity, which expanded my versatility as a developer.</p>
+      <p class="proj-section-intro" style="color: var(--muted); font-size: 14px; font-style: italic;">Note: The game servers have since been shut down. WebGL versions may still be accessible at the links above.</p>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">My Contributions</div>
+      <h2 class="proj-section-title">What I Built</h2>
+      <div class="contribution-grid">
+        <div class="contribution-item">
+          <div class="contribution-num">01</div>
+          <div class="contribution-title">UI Pages (Both Titles)</div>
+          <div class="contribution-desc">Designed and implemented all UI pages across both WordRace and Backgammon in Cocos Creator: main menus, game lobby screens, in-game HUD, win/loss results screens, settings, and profile pages.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">02</div>
+          <div class="contribution-title">Leaderboard System</div>
+          <div class="contribution-desc">Complete leaderboard architecture: real-time score fetching from the backend, ranking display, player highlighting, pagination, and friend-list filtering. Built to handle the scale of both titles' active player bases.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">03</div>
+          <div class="contribution-title">WordRace Gameplay</div>
+          <div class="contribution-desc">Contributed to core word game mechanics: round timer system, letter validation logic, scoring calculations, and the competitive multiplayer game flow — managing turns, scores, and match state across connected players.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">04</div>
+          <div class="contribution-title">Backgammon Gameplay</div>
+          <div class="contribution-desc">Contributed to the core rules implementation: dice roll system, move validation (legal moves only), piece animation logic, and the turn-based multiplayer flow with proper state synchronization between players.</div>
+        </div>
+        <div class="contribution-item">
+          <div class="contribution-num">05</div>
+          <div class="contribution-title">Real-Time Multiplayer Integration</div>
+          <div class="contribution-desc">Contributed to online game mode integration: player synchronization, connection handling, and real-time state updates — ensuring both games felt responsive and fair in live multiplayer sessions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">What I Learned</div>
+      <h2 class="proj-section-title">Skills Gained Here</h2>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text"><strong>Cocos Creator</strong> — Proven cross-engine adaptability. I had shipped Unity games before; picking up Cocos Creator's JavaScript/TypeScript environment and component model quickly was a real test of adaptability.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text"><strong>Large team dynamics</strong> — Working within a 100+ person studio with formal code review processes, sprint planning, and cross-department coordination is a different skill from solo or small-team development.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text"><strong>Two simultaneous titles</strong> — Contributing to two different games at once required clear context-switching, clean code standards, and the discipline not to mix patterns between projects.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text"><strong>Professional shipping pipeline</strong> — QA cycles, store submissions, localization integration, and live-service support. How a professional studio actually gets a game into players' hands.</div></div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section-tag">Results</div>
+      <h2 class="proj-section-title">My Impact</h2>
+      <div class="impact-stats-row">
+        <div class="impact-stat"><div class="impact-num">2</div><div class="impact-label">Published Titles</div></div>
+        <div class="impact-stat"><div class="impact-num">100+</div><div class="impact-label">Person Studio</div></div>
+        <div class="impact-stat"><div class="impact-num">2</div><div class="impact-label">Years Shipped on Schedule</div></div>
+      </div>
+      <div class="impact-feature-list">
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Both WordRace and Backgammon <strong>shipped commercially on mobile</strong> — on schedule, with full QA coverage, within the studio's production cadence.</div></div>
+        <div class="impact-feature"><div class="impact-feature-dot"></div><div class="impact-feature-text">Testimonials from teammates at Badbadak describe me as "one of the most talented and successful programmers on the Wini team" — earned through consistent delivery across both projects.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proj-page-footer">
+    <div class="proj-page-footer-inner">
+      <button class="proj-back-btn" data-goto-main="#projects">← All Projects</button>
+      <button class="proj-next-btn" data-project="page-pookeh">Back to Flagship: Pookeh <span class="arrow">→</span></button>
+    </div>
+  </div>
+
+</div><!-- end page-studio-work -->
+
+
 <script>
-  // ── Reveal on scroll ──
+  /* ═══════════════════════════════
+     SPA NAVIGATION
+  ═══════════════════════════════ */
+  const pageMain = document.getElementById('page-main');
+  const projectPages = document.querySelectorAll('.project-page');
+
+  function showProject(pageId) {
+    pageMain.style.display = 'none';
+    projectPages.forEach(p => p.classList.remove('active'));
+    const page = document.getElementById(pageId);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo({ top: 0 });
+    }
+  }
+
+  function showMain(scrollSelector) {
+    pageMain.style.display = '';
+    projectPages.forEach(p => p.classList.remove('active'));
+    if (scrollSelector) {
+      requestAnimationFrame(() => {
+        const el = document.querySelector(scrollSelector);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  }
+
+  // "View Case Study" buttons (data-project on any element)
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('[data-project]');
+    if (btn) {
+      e.preventDefault();
+      showProject(btn.dataset.project);
+    }
+  });
+
+  // "Back to Projects" buttons (data-goto-main)
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('[data-goto-main]');
+    if (btn) {
+      e.preventDefault();
+      showMain(btn.dataset.gotoMain);
+    }
+  });
+
+  // Nav logo — always back to main top
+  document.getElementById('navLogo').addEventListener('click', (e) => {
+    e.preventDefault();
+    showMain();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Nav links — if on a project page, return to main first
+  document.querySelectorAll('.main-nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const isOnProjectPage = document.querySelector('.project-page.active');
+      if (isOnProjectPage) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        showMain(href);
+      }
+    });
+  });
+
+  /* ═══════════════════════════════
+     REVEAL ON SCROLL
+  ═══════════════════════════════ */
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1323,7 +2506,9 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── Animated stat counters ──
+  /* ═══════════════════════════════
+     ANIMATED STAT COUNTERS
+  ═══════════════════════════════ */
   const statNums = document.querySelectorAll('.stat-num[data-target]');
   const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1332,18 +2517,20 @@
         const target = parseInt(entry.target.dataset.target);
         const suffix = entry.target.dataset.suffix || '';
         let current = 0;
-        const step = Math.max(1, Math.floor(target / 20));
+        const step = Math.max(1, Math.floor(target / 30));
         const timer = setInterval(() => {
           current = Math.min(current + step, target);
           entry.target.textContent = current + suffix;
           if (current >= target) clearInterval(timer);
-        }, 60);
+        }, 50);
       }
     });
   }, { threshold: 0.5 });
   statNums.forEach(el => statObserver.observe(el));
 
-  // ── Hamburger menu ──
+  /* ═══════════════════════════════
+     HAMBURGER MENU
+  ═══════════════════════════════ */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileClose = document.getElementById('mobileClose');
@@ -1365,7 +2552,9 @@
     });
   });
 
-  // ── YouTube facade — click to load real player ──
+  /* ═══════════════════════════════
+     YOUTUBE FACADES
+  ═══════════════════════════════ */
   function loadYT(el) {
     const videoId = el.dataset.videoid;
     const iframe = document.createElement('iframe');
@@ -1375,6 +2564,37 @@
     iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
     el.innerHTML = '';
     el.style.cursor = 'default';
+    el.appendChild(iframe);
+  }
+
+  function loadProjYT(el) {
+    const videoId = el.dataset.videoid;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    el.style.position = 'relative';
+    el.style.paddingBottom = '56.25%';
+    el.style.height = '0';
+    el.style.cursor = 'default';
+    el.innerHTML = '';
+    el.appendChild(iframe);
+  }
+
+  function loadProjYTShorts(el) {
+    // Shorts redirect to watch URL for embed
+    const videoId = el.dataset.videoid;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    el.style.position = 'relative';
+    el.style.paddingBottom = '56.25%';
+    el.style.height = '0';
+    el.style.cursor = 'default';
+    el.innerHTML = '';
     el.appendChild(iframe);
   }
 </script>
